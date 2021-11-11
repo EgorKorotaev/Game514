@@ -1,122 +1,6 @@
-from ascii_game.colored_text import ANSIColor, colored_text
-
-DEFAULT_TILE_0 = "░░"  # Alt+0183
-DEFAULT_TILE_1 = "··"  # Alt+0183
-DEFAULT_TILE_2 = "••"  # Alt+0149
-DEFAULT_TILE_3 = "🦔"  # Alt+0149
-DEFAULT_TILE_4 = "::"  # Alt+0149
-DEFAULT_TILE_5 = "■"  # Alt+0149
-DEFAULT_TILE_6 = "▬"  # Alt+0149
-
-
-class Vector1:
-    def __init__(self, x: float = 0.0):
-        self.x = x
-
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-
-class Vector2:
-    def __init__(self, x: float = 0.0, y: float = 0.0):
-        self.x = x
-        self.y = y
-
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-    def get_float_y(self):
-        return self.y
-
-    def get_int_y(self):
-        return int(self.y)
-
-
-class Vector3:
-    def __init__(self, x: float = 0.0, y: float = 0.0, z: float = 0.0):
-        self.x = x
-        self.y = y
-        self.z = z
-
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-    def get_float_y(self):
-        return self.y
-
-    def get_int_y(self):
-        return int(self.y)
-
-    def get_float_z(self):
-        return self.z
-
-    def get_int_z(self):
-        return int(self.z)
-
-
-class Vector4:
-    def __init__(self, x: float = 0.0, y: float = 0.0, z: float = 0.0, w: float = 0.0):
-        self.x = x
-        self.y = y
-        self.z = z
-        self.w = w
-
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-    def get_float_y(self):
-        return self.y
-
-    def get_int_y(self):
-        return int(self.y)
-
-    def get_float_z(self):
-        return self.z
-
-    def get_int_z(self):
-        return int(self.z)
-
-    def get_float_w(self):
-        return self.w
-
-    def get_int_w(self):
-        return int(self.w)
-
-
-class PhysicalComponent:
-    def __init__(self, map_range: Vector3 = Vector3(1, 1, 1)):
-        self.map_range = map_range
-
-
-class GraphicComponent:
-    def __init__(self, texture: str = DEFAULT_TILE_0, color_modifier: str = ""):
-        self.texture = texture
-        self.color_modifier = color_modifier  # TODO class ColorModifier
-
-
-class GameObject:
-    def __init__(
-        self,
-        physicalObject: PhysicalComponent = PhysicalComponent(),
-        graphicObject: GraphicComponent = GraphicComponent(),
-    ):
-        self.physicalObject = physicalObject
-        self.graphicObject = graphicObject
-
-
-#         TODO class collisionObject
+from ascii_game.component import PhysicalComponent, GraphicComponent
+from ascii_game.game_object import GameObject
+from ascii_game.vector import Vector1, Vector3
 
 
 class LogicLevelMap:  # TODO достаточно отражается сущьность обхекта?
@@ -127,6 +11,7 @@ class LogicLevelMap:  # TODO достаточно отражается сущь�
         map_default_position: Vector3 = Vector3(8, 8, 4),
         radius_view_tile: Vector1 = Vector1(1),  # TODO куда этот параметр?
     ):
+
         self.map = [
             [
                 [default_tile for x in range(map_range.get_int_x())]
@@ -241,7 +126,8 @@ class Scene:
                                 else:
                                     texture = ""
                                     game_object = GameObject(
-                                        PhysicalComponent(), GraphicComponent(texture=texture)
+                                        PhysicalComponent(),
+                                        GraphicComponent(texture=texture),
                                     )
                                     raw_render_map[z - z_start][y - y_start][
                                         x - x_start
