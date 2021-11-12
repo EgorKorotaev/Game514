@@ -13,5 +13,5 @@ class PositionComponent:
 class GameObject:
     physicalObject: PhysicalComponent = PhysicalComponent()
     graphicObject: GraphicComponent = GraphicComponent()
-    position: PositionComponent = PositionComponent()
+    transform: PositionComponent = PositionComponent()
     id: str = ""
