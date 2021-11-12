@@ -1,84 +1,33 @@
-class Vector1:
-    def __init__(self, x: float = 0.0):
-        self.x = x
-
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
+from dataclasses import dataclass
 
 
+@dataclass
+class Point:
+    x: int
+
+
+@dataclass
 class Vector2:
-    def __init__(self, x: float = 0.0, y: float = 0.0):
-        self.x = x
-        self.y = y
+    x: int
+    y: int
 
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-    def get_float_y(self):
-        return self.y
-
-    def get_int_y(self):
-        return int(self.y)
+    def __sub__(self, other):
+        return Vector2(self.x - other.x, self.y - other.y)
 
 
+@dataclass
 class Vector3:
-    def __init__(self, x: float = 0.0, y: float = 0.0, z: float = 0.0):
-        self.x = x
-        self.y = y
-        self.z = z
+    x: int
+    y: int
+    z: int
 
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-    def get_float_y(self):
-        return self.y
-
-    def get_int_y(self):
-        return int(self.y)
-
-    def get_float_z(self):
-        return self.z
-
-    def get_int_z(self):
-        return int(self.z)
+    def to_2d(self):
+        return Vector2(self.x, self.y)
 
 
+@dataclass
 class Vector4:
-    def __init__(self, x: float = 0.0, y: float = 0.0, z: float = 0.0, w: float = 0.0):
-        self.x = x
-        self.y = y
-        self.z = z
-        self.w = w
-
-    def get_float_x(self):
-        return self.x
-
-    def get_int_x(self):
-        return int(self.x)
-
-    def get_float_y(self):
-        return self.y
-
-    def get_int_y(self):
-        return int(self.y)
-
-    def get_float_z(self):
-        return self.z
-
-    def get_int_z(self):
-        return int(self.z)
-
-    def get_float_w(self):
-        return self.w
-
-    def get_int_w(self):
-        return int(self.w)
+    x: int
+    y: int
+    z: int
+    w: int
