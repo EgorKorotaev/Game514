@@ -3,13 +3,16 @@ from dataclasses import dataclass
 
 @dataclass
 class Point:
-    x: int
+    x: int = 0
 
 
 @dataclass
 class Vector2:
-    x: int
-    y: int
+    x: int = 0
+    y: int = 0
+
+    def to_1d(self):
+        return Point(self.x)
 
     def __sub__(self, other):
         return Vector2(self.x - other.x, self.y - other.y)
@@ -17,17 +20,23 @@ class Vector2:
 
 @dataclass
 class Vector3:
-    x: int
-    y: int
-    z: int
+    x: int = 0
+    y: int = 0
+    z: int = 0
 
     def to_2d(self):
         return Vector2(self.x, self.y)
 
+    def __sub__(self, other):
+        return Vector3(self.x - other.x, self.y - other.y, self.z - other.z)
+
 
 @dataclass
 class Vector4:
-    x: int
-    y: int
-    z: int
-    w: int
+    x: int = 0
+    y: int = 0
+    z: int = 0
+    w: int = 0
+
+    def to_3d(self):
+        return Vector3(self.x, self.y, self.z)
