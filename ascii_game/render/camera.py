@@ -4,8 +4,6 @@ from ascii_game.vector import Vector3
 
 
 class Camera(GameObject):
-    def __init__(
-        self, game_object_id: GameObjectId, viewport: Vector3 = Vector3(8, 8, 1)
-    ):
+    def __init__(self, game_object_id: GameObjectId, viewport: Vector3 = Vector3(8, 8, 1)):
         super().__init__(game_object_id=game_object_id)
         self.viewport = viewport

@@ -14,8 +14,7 @@ class LogicLevelMap:  # TODO достаточно отражается сущь�
     ):
 
         self.map = [
-            [[default_tile for x in range(map_range.x())] for y in range(map_range.y())]
-            for z in range(map_range.z())
+            [[default_tile for x in range(map_range.x())] for y in range(map_range.y())] for z in range(map_range.z())
         ]
         self.map_default_position = map_default_position
         self.radius_tile = radius_view_tile
