@@ -2,13 +2,15 @@ from dataclasses import dataclass
 
 from ascii_game.component.component import Component
 from ascii_game.render.renderer import TileView
-from ascii_game.texture import DEFAULT_TILE_0
+from ascii_game.render.shader import Shader, RenderedTile
 
 
 @dataclass
 class RendererComponent(Component):
-    texture: str = DEFAULT_TILE_0
-    color_modifier: str = ""
+    shader: Shader = None  # TODO add defaults shader
 
-    def draw(self) -> TileView:
-        pass
+    def set_shader(self, shader: Shader):
+        self.shader = shader
+
+    def draw(self, underlying_tile: RenderedTile, position_z: int) -> RenderedTile:
+        return self.shader.render(underlying_tile, position_z)
