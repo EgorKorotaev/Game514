@@ -1,9 +1,9 @@
 from ascii_game.component.transform_component import TransformComponent
 from ascii_game.game_object import GameObject, GameObjectId
-from ascii_game.vector import Vector3
+from ascii_game.vector import Vector2
 
 
 class Camera(GameObject):
-    def __init__(self, game_object_id: GameObjectId, viewport: Vector3 = Vector3(8, 8, 1)):
-        super().__init__(game_object_id=game_object_id)
+    def __init__(self, viewport: Vector2 = Vector2(8, 8)):
+        super().__init__()
         self.viewport = viewport

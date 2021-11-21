@@ -4,19 +4,24 @@ from typing import cast
 from ascii_game.render.camera import Camera
 from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.game_object import GameObject
-from ascii_game.render.shader import RenderedTile
+from ascii_game.render.shader import RenderedTile, Shader, DefaultShader
 from ascii_game.scene import Scene
 
 
 @dataclass
-class TileView:
-    pass
-
-
 class Buffer:
-    tile: list[list[RenderedTile]]
+    tiles: list[list[RenderedTile]]
 
-    def draw_tile(self, game_object: GameObject, camera: Camera):
+    def __init__(self, camera: Camera, shader: Shader = DefaultShader()):
+        self.camera = camera
+        default_rendered_tile = shader.render(underlying_tile=None, position_z=0)
+        self.tiles = [
+            [default_rendered_tile for x in range(camera.transform.position.x)]
+            for y in range(camera.transform.position.y)
+        ]
+
+    def draw_tile(self, game_object: GameObject):
+        camera = self.camera
         relative_tile_position = game_object.transform.position.to_2d() - camera.transform.position.to_2d()
         tile_is_in_viewport = (
             relative_tile_position.x < 0
@@ -26,9 +31,9 @@ class Buffer:
         )
         if tile_is_in_viewport:
             renderer_component = cast(RendererComponent, game_object.get_component(RendererComponent))
-            underlying_tile = self.tile[relative_tile_position.y][relative_tile_position.x]
+            underlying_tile = self.tiles[relative_tile_position.y][relative_tile_position.x]
             rendered_tile = renderer_component.draw(underlying_tile, game_object.transform.position.z)
-            self.tile[relative_tile_position.y][relative_tile_position.x] = rendered_tile
+            self.tiles[relative_tile_position.y][relative_tile_position.x] = rendered_tile
 
 
 def render_scene(scene: Scene) -> Buffer:

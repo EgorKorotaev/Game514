@@ -9,12 +9,10 @@ GameObjectId = NewType("GameObjectId", int)
 
 @dataclass
 class GameObject:
-    _game_object_id: GameObjectId
     _components: dict[Type[Component], Component]
     transform: TransformComponent
 
-    def __init__(self, game_object_id: GameObjectId):
-        self._game_object_id = game_object_id
+    def __init__(self):
         self.transform = TransformComponent()
 
     def add_component(self, component: Component):

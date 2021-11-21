@@ -1,6 +1,11 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class BackgroundTexture:
-    pass
+    color_id: str = "default"
 
 
+@dataclass
 class ObjectTexture:
-    pass
+    object_id: str = "default"
