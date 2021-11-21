@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import cast
 
-from ascii_game.camera import Camera
+from ascii_game.render.camera import Camera
 from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.game_object import GameObject
 from ascii_game.scene import Scene

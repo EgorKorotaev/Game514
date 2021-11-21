@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from ascii_game.component.component import Component
-from ascii_game.renderer import TileView
+from ascii_game.render.renderer import TileView
 from ascii_game.texture import DEFAULT_TILE_0
 
 
