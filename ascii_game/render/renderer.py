@@ -37,17 +37,15 @@ class Buffer:
 
 
 def render_scene(scene: Scene) -> Buffer:
-    buffer = Buffer()
-
     camera = scene.get_camera()
+    buffer = Buffer(camera)
 
     game_objects = scene.objects
     drawable_game_objects = get_drawable_game_objects(game_objects)
-
     drawable_game_objects.sort(key=lambda game_object: game_object.transform.position.z)
 
     for game_object in drawable_game_objects:
-        buffer.draw_tile(game_object, camera)
+        buffer.draw_tile(game_object)
 
     return buffer
 
