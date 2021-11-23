@@ -16,10 +16,10 @@ class Scene:
     def get_camera(self) -> Camera | None:
         camera = self.objects[self.camera_id]
         if not isinstance(camera, Camera):
-            # camera_ids = list[filter(lambda camera: isinstance(camera, Camera), self.objects)]
-            for object_id in range(len(self.objects)):
-                if isinstance(self.objects[object_id], Camera):
-                    camera = self.objects[object_id]
+            try:
+                camera = next(filter(lambda camera: isinstance(camera, Camera), self.objects))
+            except StopIteration:
+                return None
         return camera
 
     def add_object(self, game_object: GameObject):
