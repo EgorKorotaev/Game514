@@ -3,7 +3,8 @@ from typing import cast
 
 from ascii_game.render.camera import Camera
 from ascii_game.component.renderer_component import RendererComponent
-from ascii_game.game_object import GameObject
+from ascii_game.object.game_object import GameObject
+from ascii_game.render.material import DefaultMaterial, Material
 from ascii_game.render.shader import RenderedTile, Shader, DefaultShader
 from ascii_game.scene import Scene
 
@@ -12,9 +13,9 @@ from ascii_game.scene import Scene
 class Buffer:
     tiles: list[list[RenderedTile]]
 
-    def __init__(self, camera: Camera, shader: Shader = DefaultShader()):
+    def __init__(self, camera: Camera, material: Material = DefaultMaterial()):
         self.camera = camera
-        default_rendered_tile = shader.render(underlying_tile=None, position_z=0)
+        default_rendered_tile = material.render(underlying_tile=None, position_z=0)
         self.tiles = [
             [default_rendered_tile for x in range(camera.transform.position.x)]
             for y in range(camera.transform.position.y)

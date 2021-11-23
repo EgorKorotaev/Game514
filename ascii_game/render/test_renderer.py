@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from ascii_game.game_object import GameObject
+from ascii_game.object.game_object import GameObject
 from ascii_game.render.camera import Camera
 from ascii_game.render.renderer import Buffer
 from ascii_game.render.shader import RenderedTile

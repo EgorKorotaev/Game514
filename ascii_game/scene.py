@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from ascii_game.game_object import GameObject
+from ascii_game.object.game_object import GameObject
 from ascii_game.render.camera import Camera
 
 
@@ -10,7 +10,7 @@ class Scene:
     camera_id: int
 
     def __init__(self):
-        self.objects = [Camera()]
+        self.objects = [Camera()]  # transform x:0 y:0 z:0
         self.camera_id = 0
 
     def get_camera(self) -> Camera | None:

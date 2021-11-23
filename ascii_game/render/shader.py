@@ -12,14 +12,23 @@ class RenderedTile:
 
 class Shader(ABC):
     @abstractmethod
-    def render(self, underlying_tile: RenderedTile | None, position_z: int) -> RenderedTile:
+    def render(
+        self,
+        background_texture: BackgroundTexture,
+        object_texture: ObjectTexture,
+        underlying_tile: RenderedTile | None,
+        position_z: int,
+    ) -> RenderedTile:
         pass
 
 
 @dataclass
 class DefaultShader(Shader):
-    background_texture: BackgroundTexture = BackgroundTexture()
-    object_texture: ObjectTexture = ObjectTexture()
-
-    def render(self, underlying_tile: RenderedTile, position_z: int) -> RenderedTile:
-        return RenderedTile(self.background_texture, self.object_texture)
+    def render(
+        self,
+        background_texture: BackgroundTexture,
+        object_texture: ObjectTexture,
+        underlying_tile: RenderedTile,
+        position_z: int,
+    ) -> RenderedTile:
+        return RenderedTile(background_texture, object_texture)
