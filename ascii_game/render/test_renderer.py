@@ -1,27 +1,62 @@
 from unittest import TestCase
 
+from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.object.game_object import GameObject
 from ascii_game.render.camera import Camera
 from ascii_game.render.renderer import Buffer
-from ascii_game.render.shader import RenderedTile
-from ascii_game.render.texture import BackgroundTexture, ObjectTexture
-from ascii_game.vector import Vector3, Vector2
+from ascii_game.render.shader import RenderedTile, CustomShader, DefaultShader
+from ascii_game.render.texture import BackgroundColor, ObjectColor, ObjectTexture
+from ascii_game.vector import Vector3
 
 
 class TestBuffer(TestCase):
-    def test_draw_tile(self):
+    def test_draw_tile_add_game_object_1_1(self):
         # given
-        camera = Camera(Vector2(2, 2))
-        camera.transform.position = Vector3(4, 6, 7)
+        camera = Camera()
+        camera.transform.position = Vector3(4, 6, 5)
         buffer = Buffer(camera=camera)
+
+        background_color = BackgroundColor(color_id="no default")
+        object_color = ObjectColor(color_id="no default")
+        object_texture = ObjectTexture(object_id="no default")
 
         game_object = GameObject()
         game_object.transform.position = Vector3(5, 7, 6)
+        game_object.add_component(RendererComponent(CustomShader(background_color, object_color, object_texture)))
 
-        rendered_tile = RenderedTile(BackgroundTexture(), ObjectTexture())
+        rendered_tile = RenderedTile(background_color, object_color, object_texture)
 
         # when
-        buffer.draw_tile(game_object=game_object)
+        buffer.add_game_object(game_object=game_object)
+        buffer.draw_tiles()
 
         # then
-        self.assertEqual(rendered_tile, buffer.tiles[1][1])
+        self.assertEqual(rendered_tile, buffer.rendered_tiles[1][1])
+
+    def test_draw_tile_add_game_object_out_of_range(self):
+        # given
+        camera = Camera()
+        camera.transform.position = Vector3()
+        camera.viewport = Vector3(1, 1, 1)
+        buffer = Buffer(camera=camera)
+
+        background_color = BackgroundColor(color_id="no default")
+        object_color = ObjectColor(color_id="no default")
+        object_texture = ObjectTexture(object_id="no default")
+
+        game_object = GameObject()
+        game_object.transform.position = Vector3(1, 1, 2)
+        game_object.add_component(RendererComponent(CustomShader(background_color, object_color, object_texture)))
+
+        shader = DefaultShader()
+        default_rendered_tile = shader.render(underlying_tile=None, position_z=0)
+
+        # when
+        buffer.add_game_object(game_object=game_object)
+        buffer.draw_tiles()
+
+        # then
+        self.assertEqual(
+            [[default_rendered_tile for x in range(camera.viewport.x)] for y in range(camera.viewport.y)],
+            buffer.rendered_tiles,
+        )
