@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from ascii_game.component.component import Component
 from ascii_game.vector import Vector3
@@ -6,4 +6,4 @@ from ascii_game.vector import Vector3
 
 @dataclass
 class TransformComponent(Component):
-    position: Vector3 = Vector3()
+    position: Vector3 = field(default_factory=Vector3)
