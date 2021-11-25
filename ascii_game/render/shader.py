@@ -57,24 +57,24 @@ class CustomShader(Shader):
         )
 
 
-def tile_mixing_default(tile: RenderedTile | None, underlying_tile: RenderedTile | None) -> RenderedTile:
+def tile_mixing_default(tile: RenderedTile | None, underlying_tile: RenderedTile | None) -> RenderedTile | None:
     if not tile:
         return underlying_tile
 
     if not underlying_tile:
         return tile
 
-    object_color = deepcopy(tile.object_color)
-    object_texture = deepcopy(tile.object_texture)
+    object_color = tile.object_color
+    object_texture = tile.object_texture
     if not object_texture.object_id:
-        object_color = deepcopy(underlying_tile.object_color)
-        object_texture = deepcopy(underlying_tile.object_texture)
+        object_color = underlying_tile.object_color
+        object_texture = underlying_tile.object_texture
 
-    background_color = deepcopy(tile.background_color)
+    background_color = tile.background_color
     if not background_color.color_id:
-        background_color = deepcopy(underlying_tile.background_color)
-        object_color = deepcopy(tile.object_color)
-        object_texture = deepcopy(tile.object_texture)
+        background_color = underlying_tile.background_color
+        object_color = tile.object_color
+        object_texture = tile.object_texture
 
     rendered_tile = RenderedTile(background_color, object_color, object_texture)
     return rendered_tile

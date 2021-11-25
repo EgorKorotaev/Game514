@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import cast
 
 from ascii_game.object.game_object import GameObject
-from ascii_game.render.camera import Camera
+from ascii_game.render.camera import create_camera
 
 
 @dataclass
@@ -11,12 +11,12 @@ class Scene:
     camera_id: int
 
     def __init__(self):
-        self.objects = [Camera()]  # transform x:0 y:0 z:0
+        self.objects = [create_camera()]  # transform x:0 y:0 z:0
         self.camera_id = 0
 
-    def get_camera(self) -> Camera:
+    def get_camera(self) -> GameObject:
         camera = self.objects[self.camera_id]
-        return cast(Camera, camera)
+        return cast(GameObject, camera)
 
     def add_object(self, game_object: GameObject):
         self.objects.append(game_object)

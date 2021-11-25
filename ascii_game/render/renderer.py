@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import cast
 
+from ascii_game.component.camera_component import CameraComponent
 from ascii_game.component.renderer_priority import RendererPriority
-from ascii_game.render.camera import Camera
 from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.object.game_object import GameObject
 from ascii_game.render.shader import RenderedTile, Shader, DefaultShader
@@ -14,26 +14,24 @@ class Buffer:
     tiles: list[list[list[list[GameObject]]]]
     rendered_tiles: list[list[RenderedTile]]
 
-    def __init__(self, camera: Camera, shader: Shader = DefaultShader()):
-        self.camera = camera
+    def __init__(self, camera: GameObject, shader: Shader = DefaultShader()):
+        self.camera_position = camera.transform.position
+        self.viewport = cast(CameraComponent, camera.get_component(CameraComponent)).viewport
         self.tiles = [
-            [[[] for x in range(camera.viewport.x)] for y in range(camera.viewport.y)] for z in range(camera.viewport.z)
+            [[[] for x in range(self.viewport.x)] for y in range(self.viewport.y)] for z in range(self.viewport.z)
         ]
         default_rendered_tile = shader.render(underlying_tile=None, position_z=0)
-        self.rendered_tiles = [
-            [default_rendered_tile for x in range(camera.viewport.x)] for y in range(camera.viewport.y)
-        ]
+        self.rendered_tiles = [[default_rendered_tile for x in range(self.viewport.x)] for y in range(self.viewport.y)]
 
     def add_game_object(self, game_object: GameObject):
-        camera = self.camera
-        relative_tile_position = game_object.transform.position - camera.transform.position
+        relative_tile_position = game_object.transform.position - self.camera_position
         tile_is_in_viewport = (
             relative_tile_position.z >= 0
             and relative_tile_position.y >= 0
             and relative_tile_position.x >= 0
-            and relative_tile_position.z < camera.viewport.z
-            and relative_tile_position.y < camera.viewport.y
-            and relative_tile_position.x < camera.viewport.x
+            and relative_tile_position.z < self.viewport.z
+            and relative_tile_position.y < self.viewport.y
+            and relative_tile_position.x < self.viewport.x
         )
         if tile_is_in_viewport:
             self.tiles[relative_tile_position.z][relative_tile_position.y][relative_tile_position.x].append(game_object)
@@ -45,12 +43,13 @@ class Buffer:
                     if not len(self.tiles[z][y][x]):
                         continue
 
-                    renderer_tile = max(
+                    tile_renderer = max(
                         get_prioritized_game_objects(self.tiles[z][y][x]),
                         key=lambda i: i.get_component(RendererPriority).priority,
                     ).get_component(RendererComponent)
-                    # renderer_tile = self.tiles[z][y][x][0].get_component(RendererComponent)
-                    renderer_component = cast(RendererComponent, renderer_tile)
+
+                    # tile_renderer = self.tiles[z][y][x][0].get_component(RendererComponent)
+                    renderer_component = cast(RendererComponent, tile_renderer)
                     underlying_tile = self.rendered_tiles[y][x]
                     rendered_tile = renderer_component.draw(underlying_tile, z)
                     self.rendered_tiles[y][x] = rendered_tile

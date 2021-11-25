@@ -1,8 +1,9 @@
+from ascii_game.component.camera_component import CameraComponent
 from ascii_game.object.game_object import GameObject
 from ascii_game.vector import Vector3
 
 
-class Camera(GameObject):
-    def __init__(self, viewport: Vector3 = Vector3(8, 8, 4)):
-        self.viewport = viewport
-        super().__init__()  # transform x:0 y:0 z:0
+def create_camera() -> GameObject:
+    camera = GameObject()
+    camera.add_component(CameraComponent())
+    return camera
