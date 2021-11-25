@@ -18,9 +18,13 @@ class ANSIColor(_ColorCodes, Enum):
     WHITE = _ColorCodes("\033[37m", "\033[47m")
 
 
-def colored_text(text: str, color: ANSIColor):
-    return f"{color.text_color_code}{text}"
+def colored_text(text: str, color: ANSIColor | str) -> str:
+    if not color:
+        return text
+    return f"{color.text_color_code}{text}\033[0m"
 
 
-def colored_background(text: str, color: ANSIColor):
-    return f"{color.background_color_code}{text}"
+def colored_background(text: str, color: ANSIColor | str) -> str:
+    if not color:
+        return text
+    return f"{color.background_color_code}{text}\033[0m"

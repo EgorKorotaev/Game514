@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import NewType, Type, TypeVar
 
 from ascii_game.component.component import Component
@@ -9,11 +9,8 @@ GameObjectId = NewType("GameObjectId", int)
 
 @dataclass
 class GameObject:
-    _components: dict[Type[Component], Component]
-    transform: TransformComponent
-
-    def __init__(self):
-        self.transform = TransformComponent()
+    _components: dict[Type[Component], Component] = field(default_factory=dict)
+    transform: TransformComponent = field(default_factory=TransformComponent)
 
     def add_component(self, component: Component):
         self._components[type(component)] = component
