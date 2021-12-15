@@ -1,6 +1,5 @@
 from ascii_game.component.camera_component import CameraComponent
 from ascii_game.object.game_object import GameObject
-from ascii_game.vector import Vector3
 
 
 def create_camera() -> GameObject:

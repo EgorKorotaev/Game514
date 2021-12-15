@@ -2,7 +2,6 @@ from enum import Enum, auto
 from typing import NamedTuple
 
 from ascii_game.component.renderer_component import RendererComponent
-from ascii_game.component.renderer_priority import RendererPriority
 from ascii_game.object.game_object import GameObject
 from ascii_game.render.shader_prefab import ShadersPrefab, get_shader
 
@@ -16,7 +15,7 @@ class GameObjectsPrefab(Enum):
     FIELD = auto()
 
 
-def get_game_object(game_objects_prefab: GameObjectsPrefab) -> GameObject:  # TODO возвращает новый объект
+def get_game_object(game_objects_prefab: GameObjectsPrefab) -> GameObject:
     match game_objects_prefab:
         case GameObjectsPrefab.PLAYER:
             return player_prefab()
@@ -29,20 +28,17 @@ def get_game_object(game_objects_prefab: GameObjectsPrefab) -> GameObject:  # TO
 
 def player_prefab() -> GameObject:
     player = GameObject()
-    player.add_component(RendererComponent(get_shader(ShadersPrefab.PLAYER)))
-    player.add_component(RendererPriority(1000))
+    player.add_component(RendererComponent(shader=get_shader(ShadersPrefab.PLAYER), priority=1000))
     return player
 
 
 def wheat_prefab() -> GameObject:
     wheat = GameObject()
-    wheat.add_component(RendererComponent(get_shader(ShadersPrefab.WHEAT)))
-    wheat.add_component(RendererPriority(50))
+    wheat.add_component(RendererComponent(shader=get_shader(ShadersPrefab.WHEAT), priority=50))
     return wheat
 
 
 def field_prefab() -> GameObject:
     field = GameObject()
-    field.add_component(RendererComponent(get_shader(ShadersPrefab.FIELD)))
-    field.add_component(RendererPriority(10))  # TODO в рендерер
+    field.add_component(RendererComponent(shader=get_shader(ShadersPrefab.FIELD), priority=10))
     return field

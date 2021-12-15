@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
-from copy import deepcopy
 from dataclasses import dataclass, field
 
-from ascii_game.render.colored_text import colored_text, colored_background
+from ascii_game.render.ansi_colored_text import colored_text, colored_background
+from ascii_game.render.sty_colored_text import coloring_text_24bit, coloring_background_24bit
 from ascii_game.render.texture import BackgroundColor, ObjectColor, ObjectTexture
 
 
@@ -19,10 +19,10 @@ class RenderedTile:
             printed_symbol = self.object_texture.object_id
 
         if self.object_color:
-            printed_symbol = colored_text(printed_symbol, self.object_color.color_id)
+            printed_symbol = coloring_text_24bit(printed_symbol, self.object_color.color_id.get_rgb())
 
         if self.background_color:
-            printed_symbol = colored_background(printed_symbol, self.background_color.color_id)
+            printed_symbol = coloring_background_24bit(printed_symbol, self.background_color.color_id.get_rgb())
 
         return printed_symbol
 
@@ -45,18 +45,6 @@ class DefaultShader(Shader):
         )
 
 
-@dataclass
-class CustomShader(Shader):
-    background_color: BackgroundColor = field(default_factory=BackgroundColor)
-    object_color: ObjectColor = field(default_factory=ObjectColor)
-    object_texture: ObjectTexture = field(default_factory=ObjectTexture)
-
-    def render(self, underlying_tile: RenderedTile | None, position_z: int) -> RenderedTile:
-        return tile_mixing_default(
-            RenderedTile(self.background_color, self.object_color, self.object_texture), underlying_tile
-        )
-
-
 def tile_mixing_default(tile: RenderedTile | None, underlying_tile: RenderedTile | None) -> RenderedTile | None:
     if not tile:
         return underlying_tile
@@ -64,17 +52,9 @@ def tile_mixing_default(tile: RenderedTile | None, underlying_tile: RenderedTile
     if not underlying_tile:
         return tile
 
-    object_color = tile.object_color
-    object_texture = tile.object_texture
-    if not object_texture.object_id:
-        object_color = underlying_tile.object_color
-        object_texture = underlying_tile.object_texture
-
-    background_color = tile.background_color
-    if not background_color.color_id:
-        background_color = underlying_tile.background_color
-        object_color = tile.object_color
-        object_texture = tile.object_texture
+    object_color = ObjectColor(underlying_tile.object_color.color_id + tile.object_color.color_id)
+    object_texture = ObjectTexture(underlying_tile.object_texture.object_id + tile.object_texture.object_id)
+    background_color = BackgroundColor(underlying_tile.background_color.color_id + tile.background_color.color_id)
 
     rendered_tile = RenderedTile(background_color, object_color, object_texture)
     return rendered_tile

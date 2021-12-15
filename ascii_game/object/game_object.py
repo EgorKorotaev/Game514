@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import NewType, Type, TypeVar
+from typing import NewType, Type
 
 from ascii_game.component.component import Component
 from ascii_game.component.transform_component import TransformComponent

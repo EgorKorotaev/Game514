@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import cast
 
 from ascii_game.component.camera_component import CameraComponent
-from ascii_game.component.renderer_priority import RendererPriority
 from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.object.game_object import GameObject
 from ascii_game.render.shader import RenderedTile, Shader, DefaultShader
@@ -44,11 +43,10 @@ class Buffer:
                         continue
 
                     tile_renderer = max(
-                        get_prioritized_game_objects(self.tiles[z][y][x]),
-                        key=lambda i: i.get_component(RendererPriority).priority,
+                        self.tiles[z][y][x],
+                        key=lambda i: i.get_component(RendererComponent).priority,
                     ).get_component(RendererComponent)
 
-                    # tile_renderer = self.tiles[z][y][x][0].get_component(RendererComponent)
                     renderer_component = cast(RendererComponent, tile_renderer)
                     underlying_tile = self.rendered_tiles[y][x]
                     rendered_tile = renderer_component.draw(underlying_tile, z)
@@ -68,7 +66,6 @@ def render_scene(scene: Scene) -> Buffer:
 
     game_objects = scene.objects
     drawable_game_objects = get_drawable_game_objects(game_objects)
-    # drawable_game_objects.sort(key=lambda game_object: game_object.transform.position.z)
 
     for game_object in drawable_game_objects:
         buffer.add_game_object(game_object)
@@ -80,7 +77,3 @@ def render_scene(scene: Scene) -> Buffer:
 
 def get_drawable_game_objects(game_objects: list[GameObject]) -> list[GameObject]:
     return [game_object for game_object in game_objects if game_object.get_component(RendererComponent) is not None]
-
-
-def get_prioritized_game_objects(game_objects: list[GameObject]) -> list[GameObject]:
-    return [game_object for game_object in game_objects if game_object.get_component(RendererPriority) is not None]
