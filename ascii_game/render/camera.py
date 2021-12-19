@@ -4,5 +4,6 @@ from ascii_game.object.game_object import GameObject
 
 def create_camera() -> GameObject:
     camera = GameObject()
+
     camera.add_component(CameraComponent())
     return camera

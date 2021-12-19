@@ -5,7 +5,7 @@ from ascii_game.object.game_object import GameObject
 from ascii_game.render.camera import create_camera
 from ascii_game.render.color_a import ColorA
 from ascii_game.render.renderer import Buffer
-from ascii_game.render.shader import RenderedTile, DefaultShader
+from ascii_game.render.shader import RenderedTile, TransparengShader
 from ascii_game.render.texture import BackgroundColor, ObjectColor, ObjectTexture
 from ascii_game.vector import Vector3
 
@@ -23,7 +23,7 @@ class TestBuffer(TestCase):
 
         game_object = GameObject()
         game_object.transform.position = Vector3(5, 7, 6)
-        game_object.add_component(RendererComponent(DefaultShader(background_color, object_color, object_texture)))
+        game_object.add_component(RendererComponent(TransparengShader(background_color, object_color, object_texture)))
 
         rendered_tile = RenderedTile(background_color, object_color, object_texture)
 
@@ -47,9 +47,9 @@ class TestBuffer(TestCase):
 
         game_object = GameObject()
         game_object.transform.position = Vector3(1, 1, 2)
-        game_object.add_component(RendererComponent(DefaultShader(background_color, object_color, object_texture)))
+        game_object.add_component(RendererComponent(TransparengShader(background_color, object_color, object_texture)))
 
-        shader = DefaultShader()
+        shader = TransparengShader()
         default_rendered_tile = shader.render(underlying_tile=None, position_z=0)
 
         # when

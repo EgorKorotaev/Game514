@@ -16,4 +16,4 @@ class ObjectColor:
 
 @dataclass
 class ObjectTexture:
-    object_id: str = field(default_factory=str)
+    object_id: str = ""

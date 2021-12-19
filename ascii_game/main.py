@@ -1,3 +1,4 @@
+from ascii_game.component.camera_component import CameraComponent
 from ascii_game.object.game_objects_prefab import GameObjectsPrefab, get_game_object
 from ascii_game.render.color_a import ColorA
 from ascii_game.render.renderer import render_scene
@@ -8,21 +9,31 @@ from sty import fg, bg, ef, rs
 
 def main():  # TODO сделать сохранения с помощью посетителя
     scene = Scene()
-    for y in range(9):
-        for x in range(9):
+    scene.objects[scene.camera_id].transform.position.z = -1
+    scene.objects[scene.camera_id].get_component(CameraComponent).viewport.x = 4
+    scene.objects[scene.camera_id].get_component(CameraComponent).viewport.y = 4
+    scene.objects[scene.camera_id].get_component(CameraComponent).viewport.z = 10
+
+    for y in range(4):
+        for x in range(4):
+
+            if y == 2:
+                player = get_game_object(GameObjectsPrefab.PLAYER)
+                player.transform.position = Vector3(x, y, x + y + 1)
+                scene.add_object(player)
+
+            if (y == 2 or y == 1) and x == 2:
+                glass = get_game_object(GameObjectsPrefab.GLASS)
+                glass.transform.position = Vector3(x, y, x + y + 2)
+                scene.add_object(glass)
+
             wheat = get_game_object(GameObjectsPrefab.WHEAT)
-            wheat.transform.position = Vector3(x, y, 3)
+            wheat.transform.position = Vector3(x, y, x + y + 1)
             scene.add_object(wheat)
 
             field = get_game_object(GameObjectsPrefab.FIELD)
-            field.transform.position = Vector3(x, y, 2)
+            field.transform.position = Vector3(x, y, x + y)
             scene.add_object(field)
-
-    player = get_game_object(GameObjectsPrefab.PLAYER)
-
-    player.transform.position = Vector3(1, 1, 3)
-
-    scene.add_object(player)
 
     buffer = render_scene(scene)
     buffer.print()
@@ -62,23 +73,38 @@ def test_color():
 
 
 def test_color2():
-    color_red = ColorA()
-    color_red.set_rgb(0, 1, 0)
-    color_red.a = 1
+    color_b = ColorA()
 
-    color_dark = ColorA()
-    color_dark.set_hsl(color_red.h, 0.8, 0.20)
-    color_dark.a = 0.9
+    color_red = ColorA()
+    color_red.set_rgb(1, 0, 0)
+    color_red.a = 0.3
+
+    color_blue = ColorA()
+    color_blue.set_rgb(0, 0, 1)
+    color_blue.a = 0.7
+
+    color_dark = ColorA(1, 1, 1, 0.5)
+    # color_dark.set_hsl(0, 0.8, 0.90)
+    # color_dark.a = 0.9
 
     color_result = color_red + color_dark
+    color_result_1 = color_red + color_blue
+    color_result_2 = color_blue + color_red
 
-    r, g, b = color_red.get_rgb()
+    r, g, b = (color_b + color_red).get_rgb()
     print(f"{bg(r, g, b)}{color_red.a}{rs.all}")
-    r, g, b = color_result.get_rgb()
+
+    r, g, b = (color_b + color_red + color_dark).get_rgb()
     print(f"{bg(r, g, b)}{color_result.a}{rs.all}")
+
+    r, g, b = color_result_1.get_rgb()
+    print(f"{bg(r, g, b)}{color_result_1.a}{rs.all}")
+
+    r, g, b = color_result_2.get_rgb()
+    print(f"{bg(r, g, b)}{color_result_2.a}{rs.all}")
 
 
 if __name__ == "__main__":
-    main()
+    # main()
     # test_color()
-    # test_color2()
+    test_color2()
