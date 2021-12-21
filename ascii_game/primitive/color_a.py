@@ -2,6 +2,8 @@ import colorsys
 from copy import deepcopy
 from dataclasses import dataclass
 
+from ascii_game.visitor import PrimitiveVisitor
+
 
 @dataclass
 class ColorA:
@@ -10,6 +12,9 @@ class ColorA:
     b: float = 0.00
 
     a: float = 1.00
+
+    def accept(self, visitor: PrimitiveVisitor):
+        return visitor.visit_color_a(self)
 
     def set_rgb(self, r: float, g: float, b: float):
         self.r, self.g, self.b = r, g, b

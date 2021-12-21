@@ -20,3 +20,6 @@ class Scene:
 
     def add_object(self, game_object: GameObject):
         self.objects.append(game_object)
+
+    def saving(self) -> list:
+        return [game_object.saving() for game_object in self.objects]

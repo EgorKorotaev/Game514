@@ -1,9 +1,11 @@
+import json
+
 from ascii_game.component.camera_component import CameraComponent
 from ascii_game.object.game_objects_prefab import GameObjectsPrefab, get_game_object
-from ascii_game.render.color_a import ColorA
+from ascii_game.primitive.color_a import ColorA
 from ascii_game.render.renderer import render_scene
 from ascii_game.scene import Scene
-from ascii_game.vector import Vector3
+from ascii_game.primitive.vector import Vector3
 from sty import fg, bg, ef, rs
 
 
@@ -37,6 +39,9 @@ def main():  # TODO сделать сохранения с помощью пос
 
     buffer = render_scene(scene)
     buffer.print()
+
+    formatted = json.dumps(scene.saving(), indent=2)
+    print(formatted)
 
 
 def test_color():
@@ -105,6 +110,6 @@ def test_color2():
 
 
 if __name__ == "__main__":
-    # main()
+    main()
     # test_color()
-    test_color2()
+    # test_color2()

@@ -1,12 +1,11 @@
 from enum import Enum, auto
-import html
 from typing import NamedTuple
 import html
 
-from ascii_game.render.ansi_colored_text import ANSIColor
-from ascii_game.render.color_a import ColorA
-from ascii_game.render.shader import SimpleShader, Shader
-from ascii_game.render.texture import BackgroundColor, ObjectColor, ObjectTexture
+from ascii_game.primitive.color_a import ColorA
+from ascii_game.shader.shader import Shader
+from ascii_game.shader.simple_shader import SimpleShader
+from ascii_game.render.texture import ObjectTexture
 
 class _Shaders(NamedTuple):
     shader: Shader

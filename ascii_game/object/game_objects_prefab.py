@@ -3,9 +3,9 @@ from typing import NamedTuple
 
 from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.object.game_object import GameObject
-from ascii_game.render.color_a import ColorA
-from ascii_game.render.shader import TransparentShader
-from ascii_game.render.shader_prefab import ShadersPrefab, get_shader
+from ascii_game.primitive.color_a import ColorA
+from ascii_game.shader.transparent_shader import TransparentShader
+from ascii_game.shader.shader_prefab import ShadersPrefab, get_shader
 
 class _GameObjects(NamedTuple):
     game_object: GameObject
@@ -47,7 +47,7 @@ def _player_prefab() -> GameObject:
 
 def _glass_prefab() -> GameObject:
     glass = GameObject()
-    glass_shader = TransparentShader(ColorA(1, 0, 0 , a=0.6))
+    glass_shader = TransparentShader(ColorA(0, 1, 0 , a=0.2))
     glass.add_component(RendererComponent(shader=glass_shader, priority=11))
     return glass
 

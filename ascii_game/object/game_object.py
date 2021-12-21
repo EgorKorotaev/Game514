@@ -3,6 +3,7 @@ from typing import NewType, Type
 
 from ascii_game.component.component import Component
 from ascii_game.component.transform_component import TransformComponent
+from ascii_game.save.saving_visitor import JSONExportComponentVisitor
 
 GameObjectId = NewType("GameObjectId", int)
 
@@ -17,3 +18,11 @@ class GameObject:
 
     def get_component(self, component_type: Type[Component]) -> Component | None:
         return self._components.get(component_type)
+
+    def saving(self) -> dict:
+        json_export_component_visitor = JSONExportComponentVisitor()
+        data = {
+            'transform': self.transform.accept(json_export_component_visitor),
+            '_components': [self._components[key].accept(json_export_component_visitor) for key in self._components.keys()]
+        }
+        return data

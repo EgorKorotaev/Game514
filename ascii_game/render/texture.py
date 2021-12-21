@@ -1,7 +1,6 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
-from ascii_game.render.ansi_colored_text import ANSIColor
-from ascii_game.render.color_a import ColorA
+from ascii_game.primitive.color_a import ColorA
 
 
 @dataclass

@@ -3,12 +3,10 @@ from typing import cast
 
 from ascii_game.component.camera_component import CameraComponent
 from ascii_game.component.renderer_component import RendererComponent
-from ascii_game.component.transform_component import TransformComponent
 from ascii_game.object.game_object import GameObject
-from ascii_game.object.game_objects_prefab import get_game_object, GameObjectsPrefab
-from ascii_game.render.shader import RenderedTile, Shader, SimpleShader
+from ascii_game.drawing_in_console.rendered_tile import RenderedTile
 from ascii_game.scene import Scene
-from ascii_game.vector import Vector3
+from ascii_game.primitive.vector import Vector3
 
 
 @dataclass

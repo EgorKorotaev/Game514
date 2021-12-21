@@ -3,11 +3,12 @@ from unittest import TestCase
 from ascii_game.component.renderer_component import RendererComponent
 from ascii_game.object.game_object import GameObject
 from ascii_game.render.camera import create_camera
-from ascii_game.render.color_a import ColorA
+from ascii_game.primitive.color_a import ColorA
 from ascii_game.render.renderer import Buffer
-from ascii_game.render.shader import RenderedTile, TransparengShader
+from ascii_game.shader.shader import TransparengShader
+from ascii_game.render.rendered_tile import RenderedTile
 from ascii_game.render.texture import BackgroundColor, ObjectColor, ObjectTexture
-from ascii_game.vector import Vector3
+from ascii_game.primitive.vector import Vector3
 
 
 class TestBuffer(TestCase):
