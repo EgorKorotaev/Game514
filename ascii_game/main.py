@@ -40,8 +40,10 @@ def main():  # TODO сделать сохранения с помощью пос
     buffer = render_scene(scene)
     buffer.print()
 
-    formatted = json.dumps(scene.saving(), indent=2)
-    print(formatted)
+    data = json.dumps(scene.saving(), indent=2)
+    print(data)
+    with open('data.json', 'w') as f:
+        json.dump(scene.saving(), f, indent = 4)
 
 
 def test_color():
