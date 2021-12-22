@@ -2,6 +2,7 @@ import json
 
 from ascii_game.object.game_object import GameObject
 from ascii_game.scene import Scene
+from ascii_game.serialization.load_component import load_component
 
 
 def load_scene(scene_json: str) -> Scene:
@@ -11,8 +12,8 @@ def load_scene(scene_json: str) -> Scene:
 
 def _load_game_object(game_object: dict) -> GameObject:
     return GameObject(
-        transform=serialize_component(game_object.transform),
-        components=[serialize_component(game_object._components[key]) for key in game_object._components.keys()],
+        transform=load_component(game_object['transform']),
+        components=[load_component(component) for component in game_object['components']]
     )
 
 

@@ -22,7 +22,7 @@ class TestBuffer(TestCase):
         object_color = ObjectColor(ColorA(a=0))
         object_texture = ObjectTexture(object_id="no default")
 
-        game_object = GameObject()
+        game_object = GameObject.create_game_object()
         game_object.transform.position = Vector3(5, 7, 6)
         game_object.add_component(RendererComponent(TransparengShader(background_color, object_color, object_texture)))
 
@@ -46,7 +46,7 @@ class TestBuffer(TestCase):
         object_color = ObjectColor(ColorA(a=0))
         object_texture = ObjectTexture(object_id="no default")
 
-        game_object = GameObject()
+        game_object = GameObject.create_game_object()
         game_object.transform.position = Vector3(1, 1, 2)
         game_object.add_component(RendererComponent(TransparengShader(background_color, object_color, object_texture)))
 

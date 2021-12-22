@@ -63,6 +63,6 @@ class KeyboardSubjectComponent(Component):
 
 
 def create_keyboard_subject():
-    keyboard_subject = GameObject()
+    keyboard_subject = GameObject.create_game_object()
     keyboard_subject.add_component(KeyboardSubjectComponent())
     return keyboard_subject

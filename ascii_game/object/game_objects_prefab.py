@@ -41,42 +41,42 @@ def get_game_object(game_objects_prefab: GameObjectsPrefab) -> GameObject:
 
 
 def _player_prefab() -> GameObject:
-    player = GameObject()
+    player = GameObject.create_game_object()
     player.add_component(RendererComponent(shader=get_shader(ShadersPrefab.PLAYER), priority=1000))
     return player
 
 def _glass_prefab() -> GameObject:
-    glass = GameObject()
+    glass = GameObject.create_game_object()
     glass_shader = TransparentShader(ColorA(0, 1, 0 , a=0.2))
     glass.add_component(RendererComponent(shader=glass_shader, priority=11))
     return glass
 
 
 def _wheat_prefab() -> GameObject:
-    wheat = GameObject()
+    wheat = GameObject.create_game_object()
     wheat.add_component(RendererComponent(shader=get_shader(ShadersPrefab.WHEAT), priority=50))
     return wheat
 
 
 def _field_prefab() -> GameObject:
-    field = GameObject()
+    field = GameObject.create_game_object()
     field.add_component(RendererComponent(shader=get_shader(ShadersPrefab.FIELD), priority=10))
     return field
 
 
 def _dark_smoke_prefab() -> GameObject:
-    dark_smoke = GameObject()
+    dark_smoke = GameObject.create_game_object()
     dark_smoke.add_component(RendererComponent(shader=get_shader(ShadersPrefab.DARK_SMOKE)))
     return dark_smoke
 
 
 def _light_smoke_prefab() -> GameObject:
-    light_smoke = GameObject()
+    light_smoke = GameObject.create_game_object()
     light_smoke.add_component(RendererComponent(shader=get_shader(ShadersPrefab.LIGHT_SMOKE)))
     return light_smoke
 
 
 def _air_prefab() -> GameObject:
-    air = GameObject()
+    air = GameObject.create_game_object()
     air.add_component(RendererComponent(shader=get_shader(ShadersPrefab.AIR)))
     return air
