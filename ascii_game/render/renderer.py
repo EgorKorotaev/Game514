@@ -62,7 +62,7 @@ class Buffer:
                 self.rendered_tiles[y][x] = rendered_tile
 
     def print(self):
-        for y in range(len(self.rendered_tiles)):
+        for y in reversed(range(len(self.rendered_tiles))):
             for x in range(len(self.rendered_tiles[y])):
                 printed_symbol = self.rendered_tiles[y][x].get_printed_symbol()
                 print("%4s" % (printed_symbol), end="")

@@ -12,8 +12,8 @@ def load_scene(scene_json: str) -> Scene:
 
 def _load_game_object(game_object: dict) -> GameObject:
     return GameObject(
-        transform=load_component(game_object['transform']),
-        components=[load_component(component) for component in game_object['components']]
+        transform=load_component(game_object["transform"]),
+        components=[load_component(component) for component in game_object["components"]],
     )
 
 

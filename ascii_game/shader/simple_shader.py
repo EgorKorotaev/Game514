@@ -14,7 +14,9 @@ class SimpleShader(Shader):
     object_color: ColorA
     object_texture: ObjectTexture
 
-    def render(self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None) -> RenderedTile:
+    def render(
+        self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None
+    ) -> RenderedTile:
         this_tile = RenderedTile(self.background_color, self.object_color, self.object_texture)
 
         if underlying_tile is None:
@@ -30,7 +32,7 @@ class SimpleShader(Shader):
         object_color = tile.object_color
         object_texture = tile.object_texture
 
-        if tile.object_texture.object_id == '':
+        if tile.object_texture.object_id == "":
             object_texture = underlying_tile.object_texture
 
         rendered_tile = RenderedTile(background_color, object_color, object_texture)

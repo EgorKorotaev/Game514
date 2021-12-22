@@ -5,6 +5,7 @@ import keyboard as keyboard
 
 from ascii_game.component.camera_component import CameraComponent
 from ascii_game.component.keyboard_subject_component import KeyboardSubjectComponent
+from ascii_game.game.player_controller import PlayerController
 from ascii_game.object.game_objects_prefab import GameObjectsPrefab, get_game_object
 from ascii_game.primitive.color_a import ColorA
 from ascii_game.render.renderer import render_scene
@@ -15,7 +16,7 @@ from sty import fg, bg, ef, rs
 from ascii_game.serialization.serialize_scene import serialize_scene
 
 
-def main():  # TODO сделать сохранения с помощью посетителя
+def main():
     scene = Scene.create_scene()
     scene._objects[scene.camera_id].transform.position.z = -1
     scene._objects[scene.camera_id].get_component(CameraComponent).viewport.x = 4
@@ -28,32 +29,8 @@ def main():  # TODO сделать сохранения с помощью пос
             if y == 2 and x == 2:
                 player = get_game_object(GameObjectsPrefab.PLAYER)
                 player.transform.position = Vector3(x, y, x + y + 1)
+                player.add_component(PlayerController(player))
                 scene.add_object(player)
-
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.1", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.2", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.3", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.6", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.9", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.8", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.7", player.transform
-                )
-                scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).event_manager.attach(
-                    "up.4", player.transform
-                )
 
             if (y == 2 or y == 1) and (x == 2 or x == 1):
                 glass = get_game_object(GameObjectsPrefab.GLASS)
@@ -68,6 +45,10 @@ def main():  # TODO сделать сохранения с помощью пос
             field.transform.position = Vector3(x, y, x + y)
             scene.add_object(field)
 
+    game_loop(scene)
+
+
+def game_loop(scene: Scene) -> None:
     while True:
         buffer = render_scene(scene)
         buffer.print()
@@ -79,7 +60,7 @@ def main():  # TODO сделать сохранения с помощью пос
         with open("data.json", "w") as f:
             f.write(serialize_scene(scene))
 
-        time.sleep(1)
+        time.sleep(0.1)
 
 
 def test_color():
@@ -161,10 +142,3 @@ def test_keyboard():
 
     keyboard.hook(abc)
     keyboard.wait()
-
-
-if __name__ == "__main__":
-    main()
-    # test_color()
-    # test_color2()
-    # test_keyboard()

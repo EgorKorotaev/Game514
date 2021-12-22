@@ -6,17 +6,17 @@ from ascii_game.serialization.load_primitive import load_vector3
 
 
 def load_component(component: dict) -> Component:
-    match component['type']:
-        case 'TransformComponent':
+    match component["type"]:
+        case "TransformComponent":
             return load_transform_component(component)
-        case 'CameraComponent':
+        case "CameraComponent":
             return load_camera_component(component)
-        case 'RendererComponent':
+        case "RendererComponent":
             return load_renderer_component(component)
 
 
 def load_transform_component(component: dict) -> TransformComponent:
-    return TransformComponent(position=load_vector3(component['position']))
+    return TransformComponent(position=load_vector3(component["position"]))
 
 
 def load_camera_component(component: dict) -> CameraComponent:

@@ -7,10 +7,11 @@ from ascii_game.shader.shader import Shader
 from ascii_game.primitive.vector import Vector3
 
 
-@dataclass
 class RendererComponent(Component):
-    shader: Shader
-    priority: int = 0
+    def __init__(self, game_object: "GameObject", shader: Shader, priority: int = 0):
+        super().__init__(game_object)
+        self.shader = shader
+        self.priority = priority
 
     def draw(self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3) -> RenderedTile:
         return self.shader.render(underlying_tile, position_relative_to_camera)
@@ -18,5 +19,5 @@ class RendererComponent(Component):
     def accept(self, visitor: ComponentVisitor):
         return visitor.visit_renderer(self)
 
-    def update(self, subject) -> None:
+    def init(self) -> None:
         pass
