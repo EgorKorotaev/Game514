@@ -17,3 +17,6 @@ class RendererComponent(Component):
 
     def accept(self, visitor: ComponentVisitor):
         return visitor.visit_renderer(self)
+
+    def update(self, subject) -> None:
+        pass

@@ -7,7 +7,9 @@ from ascii_game.primitive.vector import Vector3
 
 class Shader(ABC):
     @abstractmethod
-    def render(self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None) -> RenderedTile:
+    def render(
+        self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None
+    ) -> RenderedTile:
         pass
 
     @abstractmethod

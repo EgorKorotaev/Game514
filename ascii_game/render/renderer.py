@@ -74,7 +74,7 @@ def render_scene(scene: Scene) -> Buffer:
     camera = scene.get_camera()
     buffer = Buffer(camera)
 
-    game_objects = scene.objects
+    game_objects = scene.game_objects()
     drawable_game_objects = get_drawable_game_objects(game_objects)
 
     for game_object in drawable_game_objects:

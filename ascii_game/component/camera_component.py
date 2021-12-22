@@ -16,3 +16,6 @@ class CameraComponent(Component):
 
     def accept(self, visitor: ComponentVisitor):
         return visitor.visit_camera(self)
+
+    def update(self, subject) -> None:
+        pass

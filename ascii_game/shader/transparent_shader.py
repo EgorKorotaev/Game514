@@ -12,14 +12,20 @@ from ascii_game.primitive.vector import Vector3
 class TransparentShader(Shader):
     color: ColorA
 
-    def render(self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None) -> RenderedTile:
+    def render(
+        self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None
+    ) -> RenderedTile:
         if underlying_tile is None:
-            return RenderedTile(background_color=self.color, object_color=ColorA(0, 0, 0, a=0), object_texture=ObjectTexture())
+            return RenderedTile(
+                background_color=self.color, object_color=ColorA(0, 0, 0, a=0), object_texture=ObjectTexture()
+            )
 
         background_color = underlying_tile.background_color + self.color
         object_color = underlying_tile.object_color + self.color
 
-        return RenderedTile(background_color=background_color, object_color=object_color, object_texture=underlying_tile.object_texture)
+        return RenderedTile(
+            background_color=background_color, object_color=object_color, object_texture=underlying_tile.object_texture
+        )
 
     def accept(self, visitor: ShaderVisitor):
         return visitor.visit_transparent(self)

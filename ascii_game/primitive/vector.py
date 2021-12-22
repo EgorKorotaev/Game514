@@ -1,3 +1,4 @@
+from copy import deepcopy
 from dataclasses import dataclass
 
 from ascii_game.visitor import PrimitiveVisitor
@@ -9,6 +10,23 @@ class Point:
 
     def accept(self, visitor: PrimitiveVisitor):
         return visitor.visit_point(self)
+
+    def __isub__(self, other):
+        x = self.x - other.x
+
+        self.x = x
+        return self
+
+    def __add__(self, other):
+        vector = deepcopy(self)
+        vector += other
+        return vector
+
+    def __iadd__(self, other):
+        x = self.x + other.x
+
+        self.x = x
+        return self
 
 
 @dataclass
@@ -23,7 +41,28 @@ class Vector2:
         return Point(self.x)
 
     def __sub__(self, other):
-        return Vector2(self.x - other.x, self.y - other.y)
+        vector = deepcopy(self)
+        vector -= other
+        return vector
+
+    def __isub__(self, other):
+        x = self.x - other.x
+        y = self.y - other.y
+
+        self.x, self.y = x, y
+        return self
+
+    def __add__(self, other):
+        vector = deepcopy(self)
+        vector += other
+        return vector
+
+    def __iadd__(self, other):
+        x = self.x + other.x
+        y = self.y + other.y
+
+        self.x, self.y = x, y
+        return self
 
 
 @dataclass
@@ -39,10 +78,30 @@ class Vector3:
         return Vector2(self.x, self.y)
 
     def __sub__(self, other):
-        return Vector3(self.x - other.x, self.y - other.y, self.z - other.z)
+        vector = deepcopy(self)
+        vector -= other
+        return vector
+
+    def __isub__(self, other):
+        x = self.x - other.x
+        y = self.y - other.y
+        z = self.z - other.z
+
+        self.x, self.y, self.z = x, y, z
+        return self
 
     def __add__(self, other):
-        return Vector3(self.x + other.x, self.y + other.y, self.z + other.z)
+        vector = deepcopy(self)
+        vector += other
+        return vector
+
+    def __iadd__(self, other):
+        x = self.x + other.x
+        y = self.y + other.y
+        z = self.z + other.z
+
+        self.x, self.y, self.z = x, y, z
+        return self
 
     # def multiply(self, scalar: ):
 
@@ -59,3 +118,31 @@ class Vector4:
 
     def to_3d(self):
         return Vector3(self.x, self.y, self.z)
+
+    def __sub__(self, other):
+        vector = deepcopy(self)
+        vector -= other
+        return vector
+
+    def __isub__(self, other):
+        x = self.x - other.x
+        y = self.y - other.y
+        z = self.z - other.z
+        w = self.w - other.w
+
+        self.x, self.y, self.z, self.w = x, y, z, w
+        return self
+
+    def __add__(self, other):
+        vector = deepcopy(self)
+        vector += other
+        return vector
+
+    def __iadd__(self, other):
+        x = self.x + other.x
+        y = self.y + other.y
+        z = self.z + other.z
+        w = self.w + other.w
+
+        self.x, self.y, self.z, self.w = x, y, z, w
+        return self
