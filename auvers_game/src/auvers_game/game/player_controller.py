@@ -4,6 +4,7 @@ from structlog import get_logger
 
 from nagoya.component.component import Component
 from nagoya.component.component_visitor import ComponentVisitor
+from nagoya.component.custom_component import CustomComponent, register_component, custom_component
 from nagoya.component.keyboard_subject_component import KeyboardEvent
 from nagoya.event_system.event_manager import Event
 from nagoya.object.game_object import GameObject
@@ -12,9 +13,11 @@ from nagoya.primitive.vector import Vector2, Vector3
 logger = get_logger(__name__)
 
 
-class PlayerController(Component):
+@custom_component
+class PlayerController(CustomComponent):
     def __init__(self, game_object: GameObject):
         super().__init__(game_object)
+
 
     def accept(self, visitor: ComponentVisitor) -> Any:
         return visitor.visit_player_controller(self)
@@ -28,6 +31,13 @@ class PlayerController(Component):
 
         event_manager = self.get_event_manager()
         event_manager.attach(KeyboardEvent.name(), event_listener)
+
+    def params_to_json(self) -> dict:
+        return {}
+
+    @staticmethod
+    def load_from_json(game_object: GameObject, params: dict) -> 'PlayerController':
+        return PlayerController(game_object)
 
 
 def _get_direction(key: str) -> Vector2:

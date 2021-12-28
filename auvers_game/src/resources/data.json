@@ -1,1 +1,1217 @@
-{"objects": [{"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 0, "z": -1}}, {"type": "CameraComponent", "viewport": {"x": 4, "y": 4, "z": 10}, "default_rendered_shader": {"type": "SimpleShader", "background_color": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0}, "object_color": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0}, "object_texture": ""}}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 0, "z": 0}}, {"type": "KeyboardSubjectComponent"}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 0, "z": 1}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 0, "z": 0}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 0, "z": 2}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 0, "z": 1}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 0, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 0, "z": 2}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 0, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 0, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 1, "z": 2}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 1, "z": 1}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 1, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "TransparentShader", "color": {"r": 0, "g": 1, "b": 0, "a": 0.2}}, "priority": 11}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 1, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 1, "z": 2}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 1, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "TransparentShader", "color": {"r": 0, "g": 1, "b": 0, "a": 0.2}}, "priority": 11}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 1, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 1, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 1, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 1, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 2, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 2, "z": 2}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 2, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "TransparentShader", "color": {"r": 0, "g": 1, "b": 0, "a": 0.2}}, "priority": 11}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 2, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 2, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 2, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 0, "g": 1, "b": 1, "a": 1.0}, "object_texture": "\u2603"}, "priority": 1000}, {"type": "PlayerController"}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 2, "z": 6}}, {"type": "RendererComponent", "shader": {"type": "TransparentShader", "color": {"r": 0, "g": 1, "b": 0, "a": 0.2}}, "priority": 11}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 2, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 2, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 2, "z": 6}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 2, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 3, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 0, "y": 3, "z": 3}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 3, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 1, "y": 3, "z": 4}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 3, "z": 6}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 2, "y": 3, "z": 5}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 3, "z": 7}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0}, "object_texture": "\ud83c\udf3f"}, "priority": 50}]}, {"components": [{"type": "TransformComponent", "position": {"x": 3, "y": 3, "z": 6}}, {"type": "RendererComponent", "shader": {"type": "SimpleShader", "background_color": {"r": 0.6352941176470588, "g": 0.396078431372549, "b": 0.24313725490196078, "a": 1.0}, "object_color": {"r": 0, "g": 0, "b": 0, "a": 0}, "object_texture": ""}, "priority": 10}]}], "camera_id": 0, "keyboard_subject_id": 1}
+{
+  "objects": [
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": -1
+          }
+        },
+        {
+          "type": "CameraComponent",
+          "viewport": {
+            "x": 4,
+            "y": 4,
+            "z": 10
+          },
+          "default_rendered_shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0.0,
+              "g": 0.0,
+              "b": 0.0,
+              "a": 1.0
+            },
+            "object_texture": ""
+          }
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "type": "KeyboardSubjectComponent"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 1
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 0,
+            "z": 2
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 0,
+            "z": 1
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 0,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 0,
+            "z": 2
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 0,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 0,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 1,
+            "z": 2
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 1,
+            "z": 1
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 1,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "TransparentShader",
+            "color": {
+              "r": 0,
+              "g": 1,
+              "b": 0,
+              "a": 0.2
+            }
+          },
+          "priority": 11
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 1,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 1,
+            "z": 2
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 1,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "TransparentShader",
+            "color": {
+              "r": 0,
+              "g": 1,
+              "b": 0,
+              "a": 0.2
+            }
+          },
+          "priority": 11
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 1,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 1,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 1,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 1,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 2,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 2,
+            "z": 2
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "TransparentShader",
+            "color": {
+              "r": 0,
+              "g": 1,
+              "b": 0,
+              "a": 0.2
+            }
+          },
+          "priority": 11
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 2,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 1,
+              "b": 1,
+              "a": 1.0
+            },
+            "object_texture": "\u2603"
+          },
+          "priority": 1000
+        },
+        {
+          "type": "PlayerController",
+          "fields": {}
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 2,
+            "z": 6
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "TransparentShader",
+            "color": {
+              "r": 0,
+              "g": 1,
+              "b": 0,
+              "a": 0.2
+            }
+          },
+          "priority": 11
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 2,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 2,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 2,
+            "z": 6
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 2,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 3,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 0,
+            "y": 3,
+            "z": 3
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 3,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 1,
+            "y": 3,
+            "z": 4
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 3,
+            "z": 6
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 2,
+            "y": 3,
+            "z": 5
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 3,
+            "z": 7
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_color": {
+              "r": 1,
+              "g": 1,
+              "b": 0,
+              "a": 1.0
+            },
+            "object_texture": "\ud83c\udf3f"
+          },
+          "priority": 50
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "TransformComponent",
+          "position": {
+            "x": 3,
+            "y": 3,
+            "z": 6
+          }
+        },
+        {
+          "type": "RendererComponent",
+          "shader": {
+            "type": "SimpleShader",
+            "background_color": {
+              "r": 0.6352941176470588,
+              "g": 0.396078431372549,
+              "b": 0.24313725490196078,
+              "a": 1.0
+            },
+            "object_color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0
+            },
+            "object_texture": ""
+          },
+          "priority": 10
+        }
+      ]
+    }
+  ],
+  "camera_id": 0,
+  "keyboard_subject_id": 1
+}

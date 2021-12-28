@@ -1,9 +1,10 @@
-from auvers_game.game.player_controller import PlayerController
-from nagoya.component import CameraComponent, Component, KeyboardSubjectComponent, RendererComponent, TransformComponent
+from nagoya.component import CameraComponent, Component, KeyboardSubjectComponent, RendererComponent, \
+    TransformComponent, CustomComponent
 from nagoya.object.game_object import GameObject
 
 from .load_primitive import load_vector3
 from .load_shader import load_shader
+from nagoya.component.custom_component import get_component
 
 
 def load_component(game_object: GameObject, component: dict) -> Component:
@@ -16,8 +17,8 @@ def load_component(game_object: GameObject, component: dict) -> Component:
             return _load_renderer_component(game_object, component)
         case "TransformComponent":
             return _load_transform_component(game_object, component)
-        case "PlayerController":
-            return _load_player_controller(game_object, component)
+        case _:
+            return _load_custom_component(game_object, component)
 
 
 def _load_camera_component(game_object: GameObject, component: dict) -> CameraComponent:
@@ -42,5 +43,5 @@ def _load_transform_component(game_object: GameObject, component: dict) -> Trans
     return TransformComponent(game_object=game_object, position=load_vector3(component["position"]))
 
 
-def _load_player_controller(game_object: GameObject, component: dict) -> PlayerController:
-    return PlayerController(game_object)
+def _load_custom_component(game_object: GameObject, component: dict) -> CustomComponent:
+    return get_component(component["type"]).load_from_json(game_object, component['fields'])

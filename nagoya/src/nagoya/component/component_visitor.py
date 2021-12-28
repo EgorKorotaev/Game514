@@ -19,5 +19,5 @@ class ComponentVisitor(ABC):
         pass
 
     @abstractmethod
-    def visit_player_controller(self, element: "PlayerController") -> None:
+    def visit_custom_component(self, element: "CustomComponent") -> None:
         pass

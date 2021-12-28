@@ -6,6 +6,7 @@ from nagoya.component import (
     KeyboardSubjectComponent,
     RendererComponent,
     TransformComponent,
+    CustomComponent
 )
 
 from .serialize_primitive import serialize_vector3
@@ -44,5 +45,5 @@ class JSONExportComponentVisitor(ComponentVisitor):
     def visit_transform(self, element: TransformComponent) -> None:
         self.serialized_component = {"type": "TransformComponent", "position": serialize_vector3(element.position)}
 
-    def visit_player_controller(self, element: PlayerController) -> None:
-        self.serialized_component = {"type": "PlayerController"}
+    def visit_custom_component(self, element: CustomComponent) -> None:
+        self.serialized_component = {"type": element.__name__, "fields": element.params_to_json() }
