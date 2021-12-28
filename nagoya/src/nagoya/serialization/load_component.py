@@ -1,5 +1,5 @@
-from nagoya.component import CameraComponent, Component, KeyboardSubjectComponent, RendererComponent, TransformComponent
 from auvers_game.game.player_controller import PlayerController
+from nagoya.component import CameraComponent, Component, KeyboardSubjectComponent, RendererComponent, TransformComponent
 from nagoya.object.game_object import GameObject
 
 from .load_primitive import load_vector3

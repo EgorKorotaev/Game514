@@ -1,5 +1,7 @@
 from typing import Any
+
 from structlog import get_logger
+
 from nagoya.component.component import Component
 from nagoya.component.component_visitor import ComponentVisitor
 from nagoya.component.keyboard_subject_component import KeyboardEvent
@@ -7,8 +9,8 @@ from nagoya.event_system.event_manager import Event
 from nagoya.object.game_object import GameObject
 from nagoya.primitive.vector import Vector2, Vector3
 
-
 logger = get_logger(__name__)
+
 
 class PlayerController(Component):
     def __init__(self, game_object: GameObject):
@@ -48,5 +50,5 @@ def _get_direction(key: str) -> Vector2:
             direction = Vector2(-1, 0)
         case _:
             direction = Vector2(0, 0)
-    logger.debug('direction', x=direction.x, y=direction.y)
+    logger.debug("direction", x=direction.x, y=direction.y)
     return direction

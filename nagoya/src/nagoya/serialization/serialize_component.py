@@ -1,3 +1,4 @@
+from auvers_game.game.player_controller import PlayerController
 from nagoya.component import (
     CameraComponent,
     Component,
@@ -6,7 +7,6 @@ from nagoya.component import (
     RendererComponent,
     TransformComponent,
 )
-from auvers_game.game.player_controller import PlayerController
 
 from .serialize_primitive import serialize_vector3
 from .serialize_shader import serialize_shader

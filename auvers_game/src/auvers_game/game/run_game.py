@@ -3,7 +3,7 @@ import os
 from bearlibterminal import terminal
 from sty import bg, ef, fg, rs
 
-from auvers_game.resources import resources_root, get_resource
+from auvers_game.resources import get_resource, resources_root
 from nagoya.component.camera_component import CameraComponent
 from nagoya.component.keyboard_subject_component import KeyboardSubjectComponent
 from nagoya.primitive.color_a import ColorA
@@ -15,14 +15,15 @@ from nagoya.serialization.serialize_scene import serialize_scene
 
 
 def run_game():
-    with open(get_resource("data.json") , "r") as json_scene:
+    with open(get_resource("data.json"), "r") as json_scene:
         scene = load_scene(json_scene.read())
     game_loop(scene)
 
 
 def game_loop(scene: Scene) -> None:
     terminal.open()
-    terminal.set("font: D:\\Users\\Faunu\\PycharmProjects\\TestGame\\Symbola.ttf, size=50")
+    font_path = get_resource("Symbola.ttf")
+    terminal.set(f"font: {font_path}, size=50")
     # terminal.set("font: C:\\Windows\\Fonts\\seguisym.ttf, size=50")
     terminal.set(
         f"window: cellsize=64x64, size={scene.get_camera().get_component(CameraComponent).viewport.x}x{scene.get_camera().get_component(CameraComponent).viewport.y}"
