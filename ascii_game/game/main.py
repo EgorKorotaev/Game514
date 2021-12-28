@@ -1,19 +1,26 @@
 import json
-import time
 
-import keyboard as keyboard
+from bearlibterminal import terminal
 
 from ascii_game.component.camera_component import CameraComponent
 from ascii_game.component.keyboard_subject_component import KeyboardSubjectComponent
 from ascii_game.game.player_controller import PlayerController
 from ascii_game.object.game_objects_prefab import GameObjectsPrefab, get_game_object
 from ascii_game.primitive.color_a import ColorA
+from ascii_game.render.bearlibterminal_renderer import render_to_terminal
 from ascii_game.render.renderer import render_scene
 from ascii_game.scene import Scene
 from ascii_game.primitive.vector import Vector3
 from sty import fg, bg, ef, rs
 
+from ascii_game.serialization.load_scene import load_scene
 from ascii_game.serialization.serialize_scene import serialize_scene
+
+
+def main2():
+    with open("data.json", "r") as json_scene:
+        scene = load_scene(json_scene.read())
+    game_loop(scene)
 
 
 def main():
@@ -45,22 +52,27 @@ def main():
             field.transform.position = Vector3(x, y, x + y)
             scene.add_object(field)
 
+    save_scene(scene)
     game_loop(scene)
 
 
 def game_loop(scene: Scene) -> None:
+    terminal.open()
+    terminal.set("font: D:\\Users\\Faunu\\PycharmProjects\\TestGame\\Symbola.ttf, size=50")
+    # terminal.set("font: C:\\Windows\\Fonts\\seguisym.ttf, size=50")
+    terminal.set(
+        f"window: cellsize=64x64, size={scene.get_camera().get_component(CameraComponent).viewport.x}x{scene.get_camera().get_component(CameraComponent).viewport.y}"
+    )
+
     while True:
+        scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).move(terminal.read())
         buffer = render_scene(scene)
-        buffer.print()
+        render_to_terminal(buffer)
 
-        scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).move()
 
-        data = serialize_scene(scene)
-        # print(data)
-        with open("data.json", "w") as f:
-            f.write(serialize_scene(scene))
-
-        time.sleep(0.1)
+def save_scene(scene):
+    with open("data.json", "w") as f:
+        f.write(serialize_scene(scene))
 
 
 def test_color():
@@ -126,19 +138,3 @@ def test_color2():
 
     r, g, b = color_result_2.get_rgb()
     print(f"{bg(r, g, b)}{color_result_2.a}{rs.all}")
-
-
-def test_keyboard():
-    def abc(x):
-        # print(type(x))
-        print(x.event_type)
-        print(x.scan_code)
-        print(x.name)
-        print(x.time)
-        print(x.device)
-        print(x.modifiers)
-        print(x.is_keypad)
-        print("\n")
-
-    keyboard.hook(abc)
-    keyboard.wait()
