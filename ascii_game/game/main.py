@@ -1,58 +1,19 @@
-import json
-
 from bearlibterminal import terminal
+from sty import fg, bg, ef, rs
 
 from ascii_game.component.camera_component import CameraComponent
 from ascii_game.component.keyboard_subject_component import KeyboardSubjectComponent
-from ascii_game.game.player_controller import PlayerController
-from ascii_game.object.game_objects_prefab import GameObjectsPrefab, get_game_object
 from ascii_game.primitive.color_a import ColorA
 from ascii_game.render.bearlibterminal_renderer import render_to_terminal
 from ascii_game.render.renderer import render_scene
 from ascii_game.scene import Scene
-from ascii_game.primitive.vector import Vector3
-from sty import fg, bg, ef, rs
-
 from ascii_game.serialization.load_scene import load_scene
 from ascii_game.serialization.serialize_scene import serialize_scene
 
 
-def main2():
+def main():
     with open("data.json", "r") as json_scene:
         scene = load_scene(json_scene.read())
-    game_loop(scene)
-
-
-def main():
-    scene = Scene.create_scene()
-    scene._objects[scene.camera_id].transform.position.z = -1
-    scene._objects[scene.camera_id].get_component(CameraComponent).viewport.x = 4
-    scene._objects[scene.camera_id].get_component(CameraComponent).viewport.y = 4
-    scene._objects[scene.camera_id].get_component(CameraComponent).viewport.z = 10
-
-    for y in range(4):
-        for x in range(4):
-
-            if y == 2 and x == 2:
-                player = get_game_object(GameObjectsPrefab.PLAYER)
-                player.transform.position = Vector3(x, y, x + y + 1)
-                player.add_component(PlayerController(player))
-                scene.add_object(player)
-
-            if (y == 2 or y == 1) and (x == 2 or x == 1):
-                glass = get_game_object(GameObjectsPrefab.GLASS)
-                glass.transform.position = Vector3(x, y, x + y + 2)
-                scene.add_object(glass)
-
-            wheat = get_game_object(GameObjectsPrefab.WHEAT)
-            wheat.transform.position = Vector3(x, y, x + y + 1)
-            scene.add_object(wheat)
-
-            field = get_game_object(GameObjectsPrefab.FIELD)
-            field.transform.position = Vector3(x, y, x + y)
-            scene.add_object(field)
-
-    save_scene(scene)
     game_loop(scene)
 
 

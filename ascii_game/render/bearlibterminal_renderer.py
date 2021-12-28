@@ -9,7 +9,5 @@ def render_to_terminal(buffer: Buffer) -> None:
             tile = buffer.rendered_tiles[y][x]
             terminal.bkcolor(tile.background_color.get_rgba_hex())
             terminal.color(tile.object_color.get_rgba_hex())
-            terminal.put(
-                x, buffer.viewport.y - 1 - y, tile.object_texture.object_id
-            )
+            terminal.put(x, buffer.viewport.y - 1 - y, tile.object_texture.object_id)
     terminal.refresh()
