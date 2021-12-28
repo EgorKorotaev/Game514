@@ -43,11 +43,11 @@ def get_shader(shader_prefab: ShadersPrefab) -> Shader:
 def _player_prefab() -> Shader:
     object_color = ColorA()
     object_color.set_rgb(0, 1, 1)
-    player = SimpleShader(
+    player = SimpleShader.create_simple_shader(
         background_color=ColorA(0, 0, 0, a=0),
         object_color=object_color,
         # object_texture=ObjectTexture(html.unescape('&#129503;'))
-        object_texture=ObjectTexture("🤺")
+        object_texture=ObjectTexture("\U00002603")
         # "🌾"
     )
     return player
@@ -59,7 +59,7 @@ def _glass_prefab() -> Shader:
     # h, _, _ = background_color.get_hsl()
     # background_color.set_hsl(h, 1, 0.7)
     color.a = 0.8
-    player = SimpleShader(
+    player = SimpleShader.create_simple_shader(
         background_color=color,
         object_color=color,
         # object_texture=ObjectTexture(html.unescape('&#129503;'))
@@ -71,10 +71,10 @@ def _glass_prefab() -> Shader:
 def _wheat_prefab() -> Shader:
     object_color = ColorA()
     object_color.set_rgb(1, 1, 0)
-    wheat = SimpleShader(
+    wheat = SimpleShader.create_simple_shader(
         background_color=ColorA(0, 0, 0, a=0),
         object_color=object_color,
-        object_texture=ObjectTexture(html.unescape("&#127806;")),  # 🌾
+        object_texture=ObjectTexture("\U0001F33F"),  # 🌾
     )
     return wheat
 
@@ -82,7 +82,7 @@ def _wheat_prefab() -> Shader:
 def _field_prefab() -> Shader:
     background_color = ColorA()
     background_color.set_rgb_255(162, 101, 62)
-    field = SimpleShader(
+    field = SimpleShader.create_simple_shader(
         background_color=background_color, object_color=ColorA(0, 0, 0, a=0), object_texture=ObjectTexture()
     )
     return field
@@ -92,7 +92,9 @@ def _dark_smoke_prefab() -> Shader:
     color = ColorA()
     color.a = 0.2
     color.set_hsl(0, 0, 0)
-    dark_smoke = SimpleShader(background_color=color, object_color=color, object_texture=ObjectTexture())
+    dark_smoke = SimpleShader.create_simple_shader(
+        background_color=color, object_color=color, object_texture=ObjectTexture()
+    )
     return dark_smoke
 
 
@@ -100,7 +102,9 @@ def _light_smoke_prefab() -> Shader:
     color = ColorA()
     color.a = 0.2
     color.set_hsl(0, 0, 1)
-    light_smoke = SimpleShader(background_color=color, object_color=color, object_texture=ObjectTexture())
+    light_smoke = SimpleShader.create_simple_shader(
+        background_color=color, object_color=color, object_texture=ObjectTexture()
+    )
     return light_smoke
 
 
@@ -108,5 +112,7 @@ def _air_prefab() -> Shader:
     color = ColorA()
     color.a = 1
     color.set_rgb(0.5, 0.5, 0.5)
-    air = SimpleShader(background_color=color, object_color=color, object_texture=ObjectTexture("  "))
+    air = SimpleShader.create_simple_shader(
+        background_color=color, object_color=color, object_texture=ObjectTexture("  ")
+    )
     return air
