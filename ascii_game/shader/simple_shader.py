@@ -8,11 +8,11 @@ from ascii_game.render.texture import ObjectTexture
 from ascii_game.primitive.vector import Vector3
 
 
-@dataclass
 class SimpleShader(Shader):
-    background_color: ColorA
-    object_color: ColorA
-    object_texture: ObjectTexture
+    def __init__(self, background_color: ColorA, object_color: ColorA, object_texture: ObjectTexture):
+        self.background_color = background_color
+        self.object_color = object_color
+        self.object_texture = object_texture
 
     def render(
         self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None
@@ -54,3 +54,11 @@ class SimpleShader(Shader):
 
     def accept(self, visitor: ShaderVisitor):
         return visitor.visit_simple(self)
+
+    @staticmethod
+    def create_simple_shader(
+        background_color: ColorA = ColorA(),
+        object_color: ColorA = ColorA(),
+        object_texture: ObjectTexture = ObjectTexture(),
+    ) -> "SimpleShader":
+        return SimpleShader(background_color, object_color, object_texture)

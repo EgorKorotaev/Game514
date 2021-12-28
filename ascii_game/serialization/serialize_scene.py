@@ -19,7 +19,4 @@ def _serialize_scene(scene: Scene) -> dict:
 
 
 def _serialize_game_object(game_object: GameObject) -> dict:
-    return {
-        "transform": serialize_component(game_object.transform),
-        "components": [serialize_component(game_object._components[key]) for key in game_object._components.keys()],
-    }
+    return {"components": [serialize_component(game_object._components[key]) for key in game_object._components.keys()]}

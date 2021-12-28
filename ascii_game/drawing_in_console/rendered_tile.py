@@ -24,3 +24,6 @@ class RenderedTile:
             printed_symbol = coloring_background_24bit(printed_symbol, self.background_color.get_rgb())
 
         return printed_symbol
+
+    def get_symbol(self):
+        return self.object_texture.object_id

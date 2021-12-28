@@ -24,7 +24,11 @@ class TestBuffer(TestCase):
 
         game_object = GameObject.create_game_object()
         game_object.transform.position = Vector3(5, 7, 6)
-        game_object.add_component(RendererComponent(TransparengShader(background_color, object_color, object_texture)))
+        game_object.add_component(
+            RendererComponent.create_renderer_component(
+                TransparengShader(background_color, object_color, object_texture)
+            )
+        )
 
         rendered_tile = RenderedTile(background_color, object_color, object_texture)
 
@@ -48,7 +52,11 @@ class TestBuffer(TestCase):
 
         game_object = GameObject.create_game_object()
         game_object.transform.position = Vector3(1, 1, 2)
-        game_object.add_component(RendererComponent(TransparengShader(background_color, object_color, object_texture)))
+        game_object.add_component(
+            RendererComponent.create_renderer_component(
+                TransparengShader(background_color, object_color, object_texture)
+            )
+        )
 
         shader = TransparengShader()
         default_rendered_tile = shader.render(underlying_tile=None, position_z=0)

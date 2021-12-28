@@ -8,9 +8,9 @@ from ascii_game.render.texture import ObjectTexture
 from ascii_game.primitive.vector import Vector3
 
 
-@dataclass
 class TransparentShader(Shader):
-    color: ColorA
+    def __init__(self, color: ColorA):
+        self.color = color
 
     def render(
         self, underlying_tile: RenderedTile | None, position_relative_to_camera: Vector3 | None = None
@@ -29,3 +29,7 @@ class TransparentShader(Shader):
 
     def accept(self, visitor: ShaderVisitor):
         return visitor.visit_transparent(self)
+
+    @staticmethod
+    def create_transparent_shader(color: ColorA = ColorA()) -> "TransparentShader":
+        return TransparentShader(color)

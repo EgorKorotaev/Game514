@@ -9,8 +9,11 @@ from ascii_game.visitor import ComponentVisitor
 
 
 class PlayerController(Component):
+    def __init__(self, game_object: GameObject):
+        super().__init__(game_object)
+
     def accept(self, visitor: ComponentVisitor) -> Any:
-        pass
+        return visitor.visit_player_controller(self)
 
     def init(self):
         game_object: GameObject = self.this_game_object()
@@ -43,4 +46,5 @@ def _get_direction(key: str) -> Vector2:
             direction = Vector2(-1, 0)
         case _:
             direction = Vector2(0, 0)
+    print(direction)
     return direction
