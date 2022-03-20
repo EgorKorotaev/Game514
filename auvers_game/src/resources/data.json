@@ -5,16 +5,16 @@
         {
           "type": "TransformComponent",
           "position": {
-            "x": 0,
-            "y": 0,
+            "x": -6,
+            "y": -6,
             "z": -1
           }
         },
         {
           "type": "CameraComponent",
           "viewport": {
-            "x": 4,
-            "y": 4,
+            "x": 16,
+            "y": 16,
             "z": 10
           },
           "default_rendered_shader": {
@@ -23,7 +23,7 @@
               "r": 0.0,
               "g": 0.0,
               "b": 0.0,
-              "a": 1.0
+              "a": 0.1
             },
             "object_color": {
               "r": 0.0,
@@ -31,8 +31,12 @@
               "b": 0.0,
               "a": 1.0
             },
-            "object_texture": ""
+            "object_texture": "."
           }
+        },
+        {
+          "type": "PlayerController",
+          "fields": {}
         }
       ]
     },

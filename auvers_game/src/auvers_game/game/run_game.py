@@ -15,7 +15,7 @@ from nagoya.serialization.serialize_scene import serialize_scene
 
 
 def run_game():
-    with open(get_resource("data.json"), "r") as json_scene:
+    with open(get_resource("data_noiseTexture (2).png.json"), "r") as json_scene:
         scene = load_scene(json_scene.read())
     game_loop(scene)
 

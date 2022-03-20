@@ -14,10 +14,9 @@ logger = get_logger(__name__)
 
 
 @custom_component
-class PlayerController(CustomComponent):
+class PlayerController(CustomComponent):  # TODO переписать движение на физ. модель? Или что-то, что работает с высотой
     def __init__(self, game_object: GameObject):
         super().__init__(game_object)
-
 
     def accept(self, visitor: ComponentVisitor) -> Any:
         return visitor.visit_player_controller(self)

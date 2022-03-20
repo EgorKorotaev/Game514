@@ -17,6 +17,7 @@ def custom_component(component_class):
 #         super(CustomComponentMeta, cls).__init__(name, bases, clsdict)
 #
 
+
 class CustomComponent(Component, ABC):
     def accept(self, visitor: ComponentVisitor) -> Any:
         visitor.visit_custom_component(self)
@@ -39,4 +40,4 @@ def register_component(custom_component: Type[CustomComponent]) -> None:
 
 
 def get_component(component_name: str) -> Type[CustomComponent]:
-    return _components[component_name]  # TODO пуксть падоет с правильной ошибкой если не находит
+    return _components[component_name]  # TODO пуксть падает с правильной ошибкой если не находит
