@@ -38,6 +38,10 @@ class KeyboardSubjectComponent(Component):
                 event_manager.notify(KeyboardEvent("7"))
             case "4" | terminal.TK_KP_4:
                 event_manager.notify(KeyboardEvent("4"))
+            case "+" | terminal.TK_KP_PLUS:
+                event_manager.notify(KeyboardEvent("+"))
+            case "-" | terminal.TK_KP_MINUS:
+                event_manager.notify(KeyboardEvent("-"))
 
     def accept(self, visitor: ComponentVisitor) -> None:
         return visitor.visit_keyboard_subject(self)

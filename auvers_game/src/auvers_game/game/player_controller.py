@@ -2,9 +2,8 @@ from typing import Any
 
 from structlog import get_logger
 
-from nagoya.component.component import Component
 from nagoya.component.component_visitor import ComponentVisitor
-from nagoya.component.custom_component import CustomComponent, register_component, custom_component
+from nagoya.component.custom_component import CustomComponent, custom_component
 from nagoya.component.keyboard_subject_component import KeyboardEvent
 from nagoya.event_system.event_manager import Event
 from nagoya.object.game_object import GameObject
@@ -14,7 +13,7 @@ logger = get_logger(__name__)
 
 
 @custom_component
-class PlayerController(CustomComponent):  # TODO переписать движение на физ. модель? Или что-то, что работает с высотой
+class PlayerController(CustomComponent):
     def __init__(self, game_object: GameObject):
         super().__init__(game_object)
 
@@ -26,7 +25,13 @@ class PlayerController(CustomComponent):  # TODO переписать движе
 
         def event_listener(event: Event):
             direction = _get_direction(event.payload())
-            game_object.transform.position += Vector3(direction.x, direction.y, 0)
+            game_object.transform.position += direction
+            logger.debug(
+                "new position",
+                x=game_object.transform.position.x,
+                y=game_object.transform.position.y,
+                z=game_object.transform.position.z,
+            )
 
         event_manager = self.get_event_manager()
         event_manager.attach(KeyboardEvent.name(), event_listener)
@@ -35,29 +40,32 @@ class PlayerController(CustomComponent):  # TODO переписать движе
         return {}
 
     @staticmethod
-    def load_from_json(game_object: GameObject, params: dict) -> 'PlayerController':
+    def load_from_json(game_object: GameObject, params: dict) -> "PlayerController":
         return PlayerController(game_object)
 
 
-def _get_direction(key: str) -> Vector2:
+def _get_direction(key: str) -> Vector3:
     match key:
         case "1":
-            direction = Vector2(-1, -1)
+            direction = Vector3(-1, -1, 0)
         case "2":
-            direction = Vector2(0, -1)
+            direction = Vector3(0, -1, 0)
         case "3":
-            direction = Vector2(1, -1)
+            direction = Vector3(1, -1, 0)
         case "6":
-            direction = Vector2(1, 0)
+            direction = Vector3(1, 0, 0)
         case "9":
-            direction = Vector2(1, 1)
+            direction = Vector3(1, 1, 0)
         case "8":
-            direction = Vector2(0, 1)
+            direction = Vector3(0, 1, 0)
         case "7":
-            direction = Vector2(-1, 1)
+            direction = Vector3(-1, 1, 0)
         case "4":
-            direction = Vector2(-1, 0)
+            direction = Vector3(-1, 0, 0)
+        case "+":
+            direction = Vector3(0, 0, 1)
+        case "-":
+            direction = Vector3(0, 0, -1)
         case _:
-            direction = Vector2(0, 0)
-    logger.debug("direction", x=direction.x, y=direction.y)
+            direction = Vector3(0, 0, 0)
     return direction
