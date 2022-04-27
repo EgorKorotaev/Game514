@@ -1,5 +1,4 @@
-/.idea/modules.xml
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/TestGame.iml
-/.idea/vcs.xml
+/auvers_game/src/Auvers_Game.egg-info/
+/venv/
+/.idea/
+/nagoya/src/Nagoya.egg-info/
