@@ -33,13 +33,14 @@ class SimpleShader(Shader):
 
         if tile.object_texture.object_id == "":
             object_texture = underlying_tile.object_texture
+            object_color = underlying_tile.object_color
 
         rendered_tile = RenderedTile(background_color, object_color, object_texture)
 
         return rendered_tile
 
     def adjust_color_to_height(self, tile: RenderedTile, delta_z: int):
-        viewport = 10
+        viewport = 4
         percent = abs(delta_z / viewport)
         match delta_z:
             case _ if delta_z == 0:
