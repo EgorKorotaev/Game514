@@ -7,5 +7,9 @@ class ShaderVisitor(ABC):
         pass
 
     @abstractmethod
+    def visit_compromise(self, element: "CompromiseShader"):
+        pass
+
+    @abstractmethod
     def visit_transparent(self, element: "TransparentShader"):
         pass
