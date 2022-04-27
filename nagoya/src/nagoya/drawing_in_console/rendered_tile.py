@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from nagoya.drawing_in_console.sty_colored_text import coloring_background_24bit, coloring_text_24bit
 from nagoya.primitive import ColorA
@@ -7,8 +7,8 @@ from nagoya.render.texture import ObjectTexture
 
 @dataclass
 class RenderedTile:
-    background_color: ColorA
-    object_color: ColorA
+    background_color: ColorA = field(default_factory=ColorA)
+    object_color: ColorA = field(default_factory=ColorA)
     object_texture: ObjectTexture = ObjectTexture()
 
     def get_printed_symbol(self) -> str:
