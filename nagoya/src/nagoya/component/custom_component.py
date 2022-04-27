@@ -10,6 +10,7 @@ def custom_component(component_class):
     register_component(component_class)
     return component_class
 
+
 #
 # class CustomComponentMeta(Component.__metaclass__, ABC.__metaclass__):
 #     def __init__(cls, name, bases, clsdict):
@@ -28,7 +29,7 @@ class CustomComponent(Component, ABC):
 
     @staticmethod
     @abstractmethod
-    def load_from_json(game_object: GameObject, params: dict) -> 'CustomComponent':
+    def load_from_json(game_object: GameObject, params: dict) -> "CustomComponent":
         pass
 
 

@@ -47,4 +47,4 @@ class JSONExportComponentVisitor(ComponentVisitor):
         self.serialized_component = {"type": "TransformComponent", "position": serialize_vector3(element.position)}
 
     def visit_custom_component(self, element: CustomComponent) -> None:
-        self.serialized_component = {"type": element.__name__, "fields": element.params_to_json() }
+        self.serialized_component = {"type": element.__name__, "fields": element.params_to_json()}

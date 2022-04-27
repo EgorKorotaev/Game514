@@ -14,5 +14,5 @@ __all__ = [
     "KeyboardSubjectComponent",
     "KeyboardEvent",
     "ComponentVisitor",
-    "CustomComponent"
+    "CustomComponent",
 ]
