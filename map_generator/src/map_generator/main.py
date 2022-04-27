@@ -2,8 +2,8 @@ import datetime
 import json
 import random
 
-from generator.objects_prefab import get_z_blocks, zBlocksPrefab
-from generator.perlin_noise import get_perlin_noise_list
+from map_generator.objects_prefab import get_z_blocks, zBlocksPrefab
+from map_generator.perlin_noise import get_perlin_noise_list
 
 
 def generate_from_distribution(object_distribution: list[(any, int)]) -> any:

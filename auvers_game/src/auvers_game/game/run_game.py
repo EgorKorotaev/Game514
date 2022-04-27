@@ -1,7 +1,7 @@
 from bearlibterminal import terminal
 
 from auvers_game.resources import get_resource
-from generator.main import generation_map
+from map_generator.main import generation_map
 from nagoya.component.camera_component import CameraComponent
 from nagoya.component.keyboard_subject_component import KeyboardSubjectComponent
 from nagoya.render.bearlibterminal_renderer import render_to_terminal

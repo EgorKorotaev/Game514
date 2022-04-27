@@ -1,7 +1,7 @@
 from enum import Enum, auto
 
 from nagoya.primitive import ColorA
-from generator.objects import Cell, BuilderAllTheZBlocks
+from map_generator.objects import Cell, BuilderAllTheZBlocks
 
 
 class CellPrefab(Enum):

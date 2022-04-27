@@ -3,7 +3,7 @@ import random
 
 import PIL.Image
 
-from generator.perlin import PerlinNoiseFactory
+from map_generator.perlin import PerlinNoiseFactory
 
 
 def get_perlin_noise_list(
