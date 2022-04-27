@@ -1,12 +1,9 @@
-import os
-
 from bearlibterminal import terminal
-from sty import bg, ef, fg, rs
 
-from auvers_game.resources import get_resource, resources_root
+from auvers_game.resources import get_resource
+from generator.main import generation_map
 from nagoya.component.camera_component import CameraComponent
 from nagoya.component.keyboard_subject_component import KeyboardSubjectComponent
-from nagoya.primitive.color_a import ColorA
 from nagoya.render.bearlibterminal_renderer import render_to_terminal
 from nagoya.render.renderer import render_scene
 from nagoya.scene import Scene
@@ -15,22 +12,22 @@ from nagoya.serialization.serialize_scene import serialize_scene
 
 
 def run_game():
-    with open(get_resource("data_noiseTexture (2).png.json"), "r") as json_scene:
-        scene = load_scene(json_scene.read())
+    scene = load_scene(generation_map())
     game_loop(scene)
 
 
 def game_loop(scene: Scene) -> None:
+    size = 16
     terminal.open()
     font_path = get_resource("Symbola.ttf")
-    terminal.set(f"font: {font_path}, size=50")
-    # terminal.set("font: C:\\Windows\\Fonts\\seguisym.ttf, size=50")
+    terminal.set(f"font: {font_path}, size={size}")
     terminal.set(
-        f"window: cellsize=64x64, size={scene.get_camera().get_component(CameraComponent).viewport.x}x{scene.get_camera().get_component(CameraComponent).viewport.y}"
+        f"window: cellsize={size}x{size}, size={scene.get_camera().get_component(CameraComponent).viewport.x}x{scene.get_camera().get_component(CameraComponent).viewport.y}"
     )
 
     while True:
-        scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).move(terminal.read())
+        if terminal.has_input():
+            scene._objects[scene.keyboard_subject_id].get_component(KeyboardSubjectComponent).move(terminal.read())
         buffer = render_scene(scene)
         render_to_terminal(buffer)
 
