@@ -6,7 +6,7 @@ from nagoya.component import (
     KeyboardSubjectComponent,
     RendererComponent,
     TransformComponent,
-    CustomComponent
+    CustomComponent,
 )
 
 from .serialize_primitive import serialize_vector3
@@ -27,6 +27,7 @@ class JSONExportComponentVisitor(ComponentVisitor):
         self.serialized_component = {
             "type": "CameraComponent",
             "viewport": serialize_vector3(element.viewport),
+            "center": serialize_vector3(element.center),
             "default_rendered_shader": serialize_shader(element.default_rendered_shader),
         }
 

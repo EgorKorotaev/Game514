@@ -18,6 +18,7 @@ class Buffer:
         self.camera_position = camera.transform.position
         camera_component = cast(CameraComponent, camera.get_component(CameraComponent))
         self.viewport = camera_component.viewport
+        self.center = camera_component.center
         self.tiles = [[[] for x in range(self.viewport.x)] for y in range(self.viewport.y)]
 
         self.default_rendered_tile = camera_component.default_rendered_shader.render(underlying_tile=None)
@@ -52,9 +53,9 @@ class Buffer:
                 for i in range(len(self.tiles[y][x])):
                     rendered_object = self.tiles[y][x][i]
                     object_position = rendered_object.transform.position
-                    x_from_camera = object_position.x - (self.viewport.x // 2 + self.camera_position.x)
-                    y_from_camera = object_position.y - (self.viewport.y // 2 + self.camera_position.y)
-                    z_from_camera = object_position.z - (self.viewport.z // 2 + self.camera_position.z)
+                    x_from_camera = object_position.x - (self.center.x + self.camera_position.x)
+                    y_from_camera = object_position.y - (self.center.y + self.camera_position.y)
+                    z_from_camera = object_position.z - (self.center.z + self.camera_position.z)
                     rendered_tile = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
                         rendered_tile, Vector3(x=x_from_camera, y=y_from_camera, z=z_from_camera)
                     )

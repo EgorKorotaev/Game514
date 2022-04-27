@@ -1,5 +1,11 @@
-from nagoya.component import CameraComponent, Component, KeyboardSubjectComponent, RendererComponent, \
-    TransformComponent, CustomComponent
+from nagoya.component import (
+    CameraComponent,
+    Component,
+    KeyboardSubjectComponent,
+    RendererComponent,
+    TransformComponent,
+    CustomComponent,
+)
 from nagoya.object.game_object import GameObject
 
 from .load_primitive import load_vector3
@@ -25,6 +31,7 @@ def _load_camera_component(game_object: GameObject, component: dict) -> CameraCo
     return CameraComponent(
         game_object=game_object,
         viewport=load_vector3(component["viewport"]),
+        center=load_vector3(component["center"]),
         default_rendered_shader=load_shader(shader=component["default_rendered_shader"]),
     )
 
@@ -44,4 +51,4 @@ def _load_transform_component(game_object: GameObject, component: dict) -> Trans
 
 
 def _load_custom_component(game_object: GameObject, component: dict) -> CustomComponent:
-    return get_component(component["type"]).load_from_json(game_object, component['fields'])
+    return get_component(component["type"]).load_from_json(game_object, component["fields"])
