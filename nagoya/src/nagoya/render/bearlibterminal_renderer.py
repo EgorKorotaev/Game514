@@ -1,9 +1,10 @@
 from bearlibterminal import terminal
 
 from .renderer import Buffer
+from .renderer2 import Buffer2
 
 
-def render_to_terminal(buffer: Buffer) -> None:
+def render_to_terminal(buffer: Buffer | Buffer2) -> None:
     for y in range(len(buffer.rendered_tiles)):
         for x in range(len(buffer.rendered_tiles[y])):
             tile = buffer.rendered_tiles[y][x]

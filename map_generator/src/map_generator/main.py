@@ -25,28 +25,28 @@ def get_all_the_z_blocks(given_height: int, sea_level_height: int, max_height: i
         entities = get_z_blocks(zBlocksPrefab.DEEP_WATER_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
-    elif given_height <= 2:
+    elif given_height <= 1:
         blocks = get_z_blocks(zBlocksPrefab.SHOAL_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
         entities = get_z_blocks(zBlocksPrefab.SHOAL_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
-    elif given_height <= 4:
+    elif given_height <= 2:
         blocks = get_z_blocks(zBlocksPrefab.BEACH_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=given_height)
 
         entities = get_z_blocks(zBlocksPrefab.BEACH_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=given_height, given_height=given_height)
 
-    elif given_height <= 6:
+    elif given_height <= 4:
         blocks = get_z_blocks(zBlocksPrefab.GRASS_MEADOW_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=given_height)
 
         entities = get_z_blocks(zBlocksPrefab.GRASS_MEADOW_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=given_height, given_height=given_height)
 
-    elif given_height <= 7:
+    elif given_height <= 6:
         blocks = get_z_blocks(zBlocksPrefab.FOREST_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=given_height)
 
@@ -59,12 +59,12 @@ def get_all_the_z_blocks(given_height: int, sea_level_height: int, max_height: i
 def generation_map(
     seed: str = datetime.datetime.today().strftime("%Y_%m_%d-%H_%M_%S"),
     sea_level_height=2,
-    max_height=5,
+    max_height=7,
     map_size=32,
     viewport_size=15,
 ):
     random.seed(seed)
-    perlin_array: list[list[float]] = get_perlin_noise_list(seed=seed, size=map_size)
+
     map_json = {
         "objects": [
             create_camera(viewport_size),
@@ -75,6 +75,7 @@ def generation_map(
         "keyboard_subject_id": 1,
     }
 
+    perlin_array: list[list[float]] = get_perlin_noise_list(size=map_size, octaves=1, res=20)
     for y in range(len(perlin_array)):
         for x in range(len(perlin_array[y])):
             given_height = int((perlin_array[y][x] * 100) / (101 / max_height))
@@ -130,14 +131,14 @@ def create_camera(viewport_size) -> dict:
             {
                 "type": "TransformComponent",
                 "position": {
-                    "x": 0,
-                    "y": 0,
+                    "x": int(-viewport_size / 4),
+                    "y": int(-viewport_size / 4),
                     "z": 0,
                 },
             },
             {
                 "type": "CameraComponent",
-                "viewport": {"x": viewport_size, "y": viewport_size, "z": 3},
+                "viewport": {"x": viewport_size, "y": viewport_size, "z": 8},
                 "center": {"x": viewport_size / 2, "y": viewport_size / 2, "z": 1},
                 "default_rendered_shader": {
                     "type": "SimpleShader",

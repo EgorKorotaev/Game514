@@ -191,7 +191,7 @@ def get_z_blocks(builder_all_the_z_blocks: zBlocksPrefab) -> BuilderAllTheZBlock
         case zBlocksPrefab.SHOAL_BLOCK:
             return BuilderAllTheZBlocks(
                 first_block=get_cell(CellPrefab.BEDROCK),
-                main_block=get_cell(CellPrefab.SHOAL_BLOCK),
+                main_block=get_cell(CellPrefab.BEACH_BLOCK),
                 last_block=get_cell(CellPrefab.SHOAL_BLOCK),
             )
         case zBlocksPrefab.SHOAL_ENTITY:

@@ -96,7 +96,7 @@ class CompromiseShader(Shader):
         return visitor.visit_compromise(self)
 
     @staticmethod
-    def create_simple_shader(
+    def create_compromise_shader(
         background_color: ColorA = ColorA(),
         object_color: ColorA = ColorA(),
         object_texture: ObjectTexture = ObjectTexture(),

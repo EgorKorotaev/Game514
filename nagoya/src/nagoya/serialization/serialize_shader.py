@@ -1,6 +1,7 @@
 from nagoya.shader.shader import Shader
 from nagoya.shader.shader_visitor import ShaderVisitor
 from nagoya.shader.simple_shader import SimpleShader
+from nagoya.shader.simple_shader2 import SimpleShader2
 from nagoya.shader.compromise_shader import CompromiseShader
 from nagoya.shader.transparent_shader import TransparentShader
 
@@ -20,6 +21,14 @@ class JSONExportShaderVisitor(ShaderVisitor):
     def visit_simple(self, element: SimpleShader) -> None:
         self.serialized_shader = {
             "type": "SimpleShader",
+            "background_color": serialize_color_a(element.background_color),
+            "object_color": serialize_color_a(element.object_color),
+            "object_texture": element.object_texture.object_id,
+        }
+
+    def visit_simple_2(self, element: SimpleShader2) -> None:
+        self.serialized_shader = {
+            "type": "SimpleShader2",
             "background_color": serialize_color_a(element.background_color),
             "object_color": serialize_color_a(element.object_color),
             "object_texture": element.object_texture.object_id,

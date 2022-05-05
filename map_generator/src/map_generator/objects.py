@@ -25,7 +25,8 @@ class Cell:
         object_color = generate_from_distribution(self.object_colors)
         object_textures = generate_from_distribution(self.object_textures)
         return {
-            "type": "CompromiseShader",
+            # "type": "CompromiseShader",
+            "type": "SimpleShader2",
             "background_color": {
                 "r": background_color.r,
                 "g": background_color.g,
@@ -64,7 +65,7 @@ class BuilderAllTheZBlocks:
             for height in range(z_start + 1, given_height):
                 prepared_cells.append(cell_prepared_str(x, y, height, self.main_block.get_prepared_str(), priority))
 
-        if given_height > z_start + 1:
+        if given_height >= z_start + 1:
             prepared_cells.append(cell_prepared_str(x, y, given_height, self.last_block.get_prepared_str(), priority))
 
         return prepared_cells
