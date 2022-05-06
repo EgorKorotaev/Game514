@@ -18,35 +18,35 @@ def generate_from_distribution(object_distribution: list[(any, int)]) -> any:
 
 def get_all_the_z_blocks(given_height: int, sea_level_height: int, max_height: int, x: int, y: int):
     cells = []
-    if given_height <= 0:
+    if given_height <= max_height / 8:
         blocks = get_z_blocks(zBlocksPrefab.DEEP_WATER_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
         entities = get_z_blocks(zBlocksPrefab.DEEP_WATER_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
-    elif given_height <= 1:
+    elif given_height <= max_height * (2 / 8):
         blocks = get_z_blocks(zBlocksPrefab.SHOAL_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
         entities = get_z_blocks(zBlocksPrefab.SHOAL_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=0, given_height=sea_level_height)
 
-    elif given_height <= 2:
+    elif given_height <= max_height * (3 / 8):
         blocks = get_z_blocks(zBlocksPrefab.BEACH_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=given_height)
 
         entities = get_z_blocks(zBlocksPrefab.BEACH_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=given_height, given_height=given_height)
 
-    elif given_height <= 4:
+    elif given_height <= max_height * (5 / 8):
         blocks = get_z_blocks(zBlocksPrefab.GRASS_MEADOW_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=given_height)
 
         entities = get_z_blocks(zBlocksPrefab.GRASS_MEADOW_ENTITY)
         cells += entities.get_z_blocks(x=x, y=y, z_start=given_height, given_height=given_height)
 
-    elif given_height <= 6:
+    elif given_height <= max_height * (7 / 8):
         blocks = get_z_blocks(zBlocksPrefab.FOREST_BLOCK)
         cells += blocks.get_z_blocks(x=x, y=y, z_start=0, given_height=given_height)
 
@@ -80,7 +80,7 @@ def generation_map(
         for x in range(len(perlin_array[y])):
             given_height = int((perlin_array[y][x] * 100) / (101 / max_height))
             z_blocs = get_all_the_z_blocks(
-                given_height=given_height,
+                given_height=given_height + 1,
                 sea_level_height=sea_level_height,
                 max_height=max_height,
                 x=x,
@@ -131,15 +131,15 @@ def create_camera(viewport_size) -> dict:
             {
                 "type": "TransformComponent",
                 "position": {
-                    "x": int(-viewport_size / 4),
-                    "y": int(-viewport_size / 4),
+                    "x": int(-viewport_size / 1.6),
+                    "y": int(-viewport_size / 1.2),
                     "z": 0,
                 },
             },
             {
                 "type": "CameraComponent",
-                "viewport": {"x": viewport_size, "y": viewport_size, "z": 8},
-                "center": {"x": viewport_size / 2, "y": viewport_size / 2, "z": 1},
+                "viewport": {"x": viewport_size * 3, "y": viewport_size * 2 + 1, "z": 16},
+                "center": {"x": viewport_size * 3 / 2, "y": viewport_size * 2 / 2, "z": 8},
                 "default_rendered_shader": {
                     "type": "SimpleShader",
                     "background_color": {

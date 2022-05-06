@@ -73,23 +73,25 @@ class Buffer2:
 
                     for i in range(len(self.tiles[y][x][z])):
                         rendered_object = self.tiles[y][x][z][i]
+                        object_position = rendered_object.transform.position
+                        z_from_camera = object_position.z - (self.center.z + self.camera_position.z)
                         rendered_tile_0 = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
-                            rendered_tile_0, Vector3(x=0, y=1, z=0)
+                            rendered_tile_0, Vector3(x=0, y=1, z=z_from_camera)
                         )
                         rendered_tile_1 = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
-                            rendered_tile_1, Vector3(x=0, y=0, z=0)
+                            rendered_tile_1, Vector3(x=0, y=0, z=z_from_camera)
                         )
                         rendered_tile_2 = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
-                            rendered_tile_2, Vector3(x=1, y=0, z=0)
+                            rendered_tile_2, Vector3(x=1, y=0, z=z_from_camera)
                         )
                         rendered_tile_3 = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
-                            rendered_tile_3, Vector3(x=2, y=0, z=0)
+                            rendered_tile_3, Vector3(x=2, y=0, z=z_from_camera)
                         )
                         rendered_tile_4 = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
-                            rendered_tile_4, Vector3(x=2, y=1, z=0)
+                            rendered_tile_4, Vector3(x=2, y=1, z=z_from_camera)
                         )
                         rendered_tile_5 = cast(RendererComponent, rendered_object.get_component(RendererComponent)).draw(
-                            rendered_tile_5, Vector3(x=1, y=1, z=0)
+                            rendered_tile_5, Vector3(x=1, y=1, z=z_from_camera)
                         )
 
                     self.rendered_tiles[_y][_x] = rendered_tile_0
