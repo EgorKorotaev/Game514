@@ -33,12 +33,7 @@ class Buffer:
         z = game_object.transform.position.z - self.camera_position.z
 
         tile_is_in_viewport = (
-            z >= 0
-            and y >= 0
-            and x >= 0
-            and z < self.viewport.z
-            and y < self.viewport.y
-            and x < self.viewport.x
+            z >= 0 and y >= 0 and x >= 0 and z < self.viewport.z and y < self.viewport.y and x < self.viewport.x
         )
         if tile_is_in_viewport:
             self.tiles[y][x].append(game_object)

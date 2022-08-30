@@ -16,7 +16,7 @@ def run_game():
 
 def game_loop(scene: Scene) -> None:
     def print_pressed_keys(e):
-        if e.event_type != 'down':
+        if e.event_type != "down":
             return
         e_ = e.name
         match e_:

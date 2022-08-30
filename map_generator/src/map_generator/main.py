@@ -131,22 +131,22 @@ def create_camera(viewport_size) -> dict:
             {
                 "type": "TransformComponent",
                 "position": {
-                    "x": int(-viewport_size / 1.6),
-                    "y": int(-viewport_size / 1.2),
+                    "x": viewport_size,
+                    "y": viewport_size,
                     "z": 0,
                 },
             },
             {
                 "type": "CameraComponent",
-                "viewport": {"x": viewport_size * 3, "y": viewport_size * 2 + 1, "z": 16},
-                "center": {"x": viewport_size * 3 / 2, "y": viewport_size * 2 / 2, "z": 8},
+                "viewport": {"x": viewport_size, "y": viewport_size, "z": 16},
+                "center": {"x": viewport_size // 2, "y": viewport_size // 2, "z": 8},
                 "default_rendered_shader": {
                     "type": "SimpleShader",
                     "background_color": {
-                        "r": 0.0,
-                        "g": 0.0,
-                        "b": 0.0,
-                        "a": 1,
+                        "r": 0.5,
+                        "g": 0.5,
+                        "b": 0.5,
+                        "a": 0.5,
                     },
                     "object_color": {"r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0},
                     "object_texture": " ",

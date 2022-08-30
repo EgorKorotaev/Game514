@@ -18,7 +18,7 @@ from nagoya.serialization.serialize_scene import serialize_scene
 def run_game():
     seed = datetime.today().strftime("%Y_%m_%d-%H_%M_%S")
     print(seed)
-    scene = load_scene(generation_map(seed='2022_05_04-23_15_07', map_size=32, viewport_size=32))
+    scene = load_scene(generation_map(seed="2022_05_04-23_15_07", max_height=8, map_size=64, viewport_size=32))
     # scene = load_scene(generation_map(seed=seed, map_size=32, viewport_size=64))
     game_loop(scene)
 
@@ -27,9 +27,16 @@ def game_loop(scene: Scene) -> None:
     size = 16
     terminal.open()
     font_path = get_resource("Symbola.ttf")
-    terminal.set(f"font: {font_path}, size={size + 4}")
+    terminal.set(f"font: {font_path}, size={int(size * 1.3)}")
+
+    cam_viewport_y = scene.get_camera().get_component(CameraComponent).viewport.y
+    cam_viewport_x = scene.get_camera().get_component(CameraComponent).viewport.x
+    cam_viewport_z = scene.get_camera().get_component(CameraComponent).viewport.z
+    size_x = cam_viewport_x * 2 + cam_viewport_y + 3
+    size_y = cam_viewport_y + cam_viewport_z + 3
+
     terminal.set(
-        f"window: cellsize={size}x{size}, size={scene.get_camera().get_component(CameraComponent).viewport.x + 2}x{scene.get_camera().get_component(CameraComponent).viewport.y + 2}"
+        f"window: cellsize={size}x{size}, size={size_x}x{size_y}"
     )
 
     while True:
