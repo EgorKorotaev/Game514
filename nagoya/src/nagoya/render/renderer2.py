@@ -8,6 +8,7 @@ from nagoya.drawing_in_console.rendered_tile import RenderedTile
 from nagoya.object.game_object import GameObject
 from nagoya.primitive.vector import Vector3
 from nagoya.scene import Scene
+from nagoya.shader.shader import Shader
 
 
 @dataclass
@@ -39,7 +40,7 @@ class Buffer2:
         z = game_object.transform.position.z - self.camera_position.z
 
         tile_is_in_viewport = (
-            z >= 0 and y >= 0 and x >= 0 and z < self.viewport.z and y < self.viewport.y and x < self.viewport.x
+                z >= 0 and y >= 0 and x >= 0 and z < self.viewport.z and y < self.viewport.y and x < self.viewport.x
         )
         if tile_is_in_viewport:
             self.tiles[y][x][z].append(game_object)
@@ -49,6 +50,75 @@ class Buffer2:
             # for y in range(len(self.tiles)):
             for x in range(len(self.tiles[y])):
                 #     for x in range(len(self.tiles[y]) - 1, 0, -1):
+                if y > 1 and x < len(self.tiles[y]) - 1:
+                    # if y - 1 < len(self.tiles):
+                    #     if not len(self.tiles[y - 1][0][0]):
+                    #         break
+
+                    rendered_object = []
+                    __z = 0
+
+                    for _z in range(len(self.tiles[y][x]) - 1, 0, -1):
+                        if not len(self.tiles[y][x][_z]):
+                            continue
+                        if len(rendered_object):
+                            break
+                        rendered_object = self.tiles[y][x][_z]
+                        __z = _z
+
+                    rendered_object.sort(key=lambda i: (i.get_component(RendererComponent).priority))
+
+                    if not len(rendered_object):
+                        continue
+
+                    background_color_a = cast(
+                        RendererComponent,
+                        rendered_object[0].get_component(RendererComponent)
+                    ).shader.background_color.a
+
+                    if background_color_a == 1 or True:
+                        _y = y + __z
+                        _x = x * 2 + y
+                        if _y < 0 or _x < 0:
+                            continue
+                        rendered_tile_0 = self.rendered_tiles[_y][_x]
+                        rendered_tile_1 = self.rendered_tiles[_y + 1][_x]
+                        rendered_tile_2 = self.rendered_tiles[_y + 1][_x + 1]
+                        rendered_tile_3 = self.rendered_tiles[_y + 1][_x + 2]
+                        rendered_tile_4 = self.rendered_tiles[_y][_x + 2]
+                        rendered_tile_5 = self.rendered_tiles[_y][_x + 1]
+
+                        for i in range(len(self.tiles[y][x][__z])):
+                            rendered_object = self.tiles[y][x][__z][i]
+                            object_position = rendered_object.transform.position
+                            z_from_camera = object_position.z - (self.center.z + self.camera_position.z)
+                            rendered_tile_0 = cast(
+                                RendererComponent, rendered_object.get_component(RendererComponent)
+                            ).draw(rendered_tile_0, Vector3(x=0, y=1, z=z_from_camera))
+                            rendered_tile_1 = cast(
+                                RendererComponent, rendered_object.get_component(RendererComponent)
+                            ).draw(rendered_tile_1, Vector3(x=0, y=0, z=z_from_camera))
+                            rendered_tile_2 = cast(
+                                RendererComponent, rendered_object.get_component(RendererComponent)
+                            ).draw(rendered_tile_2, Vector3(x=1, y=0, z=z_from_camera))
+                            rendered_tile_3 = cast(
+                                RendererComponent, rendered_object.get_component(RendererComponent)
+                            ).draw(rendered_tile_3, Vector3(x=2, y=0, z=z_from_camera))
+                            rendered_tile_4 = cast(
+                                RendererComponent, rendered_object.get_component(RendererComponent)
+                            ).draw(rendered_tile_4, Vector3(x=2, y=1, z=z_from_camera))
+                            rendered_tile_5 = cast(
+                                RendererComponent, rendered_object.get_component(RendererComponent)
+                            ).draw(rendered_tile_5, Vector3(x=1, y=1, z=z_from_camera))
+
+                        self.rendered_tiles[_y][_x] = rendered_tile_0
+                        self.rendered_tiles[_y + 1][_x] = rendered_tile_1
+                        self.rendered_tiles[_y + 1][_x + 1] = rendered_tile_2
+                        self.rendered_tiles[_y + 1][_x + 2] = rendered_tile_3
+                        self.rendered_tiles[_y][_x + 2] = rendered_tile_4
+                        self.rendered_tiles[_y][_x + 1] = rendered_tile_5
+                        continue
+
                 for z in range(len(self.tiles[y][x])):
                     if not len(self.tiles[y][x][z]):
                         continue
@@ -117,7 +187,9 @@ def render_scene2(scene: Scene) -> Buffer2:
     for game_object in drawable_game_objects:
         buffer.add_game_object(game_object)
 
+    started = time.time()
     buffer.draw_tiles()
+    print("Took %0.3fs" % (time.time() - started))
 
     return buffer
 

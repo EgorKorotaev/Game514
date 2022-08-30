@@ -18,7 +18,7 @@ from nagoya.serialization.serialize_scene import serialize_scene
 def run_game():
     seed = datetime.today().strftime("%Y_%m_%d-%H_%M_%S")
     print(seed)
-    scene = load_scene(generation_map(seed="2022_05_04-23_15_07", max_height=8, map_size=64, viewport_size=32))
+    scene = load_scene(generation_map(seed="2022_05_04-23_15_07", max_height=8, map_size=16, viewport_size=8))
     # scene = load_scene(generation_map(seed=seed, map_size=32, viewport_size=64))
     game_loop(scene)
 

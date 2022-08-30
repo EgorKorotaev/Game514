@@ -45,12 +45,12 @@ class SimpleShader2(Shader):
             object_color = ColorA(a=0)
             object_texture = ObjectTexture()
 
-        elif config.x == 1 and config.y == 1:  # 3
+        elif config.x == 1 and config.y == 1:  # 3 центр нижний
             background_color = background_color_y
             object_color = ColorA(a=0)
             object_texture = ObjectTexture()
 
-        elif config.x == 2 and config.y == 1:  # 4
+        elif config.x == 2 and config.y == 1:  # 4 правый нижний
             background_color = ColorA(a=0)
             object_color = background_color_z
             object_texture = self.sub_texture_1
@@ -89,7 +89,7 @@ class SimpleShader2(Shader):
             elif config.x == 1 and config.y == 1:  # 3
                 background_color = underlying_tile.background_color + background_color
                 if underlying_tile.object_texture != ObjectTexture():
-                    object_color = underlying_tile.object_color + object_color
+                    object_color = background_color
                     object_texture = underlying_tile.object_texture
 
             elif config.x == 2 and config.y == 1:  # 4
@@ -114,6 +114,9 @@ class SimpleShader2(Shader):
                 if underlying_tile.object_texture != self.sub_texture_1:
                     object_color = underlying_tile.object_color + object_color
                     object_texture = underlying_tile.object_texture
+
+                if object_texture == self.sub_texture_2:
+                    object_color = background_color
 
             # if underlying_tile.object_texture == self.sub_texture_1 or underlying_tile.object_texture == self.sub_texture_2:
             #     pass
