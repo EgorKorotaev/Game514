@@ -67,7 +67,7 @@ def generation_map(
 
     map_json = {
         "objects": [
-            create_camera(viewport_size),
+            create_camera(viewport_size, max_height),
             create_keyboard_subject(),
             create_player(),
         ],
@@ -106,6 +106,12 @@ def create_player() -> dict:
                     "object_color": {"r": 1, "g": 1, "b": 0, "a": 1.0},
                     "object_texture": "🧚",
                 },
+                "sprite": {
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "BlackOutline.png",
+                    "assets_image": ""
+                },
                 "priority": 1000,
             },
             {"type": "PlayerController", "fields": {}},
@@ -125,21 +131,21 @@ def create_keyboard_subject() -> dict:
     }
 
 
-def create_camera(viewport_size) -> dict:
+def create_camera(viewport_size, max_height) -> dict:
     return {
         "components": [
             {
                 "type": "TransformComponent",
                 "position": {
-                    "x": viewport_size,
-                    "y": viewport_size,
+                    "x": 0,
+                    "y": 0,
                     "z": 0,
                 },
             },
             {
                 "type": "CameraComponent",
-                "viewport": {"x": viewport_size, "y": viewport_size, "z": 16},
-                "center": {"x": viewport_size // 2, "y": viewport_size // 2, "z": 8},
+                "viewport": {"x": viewport_size, "y": viewport_size, "z": max_height},
+                "center": {"x": viewport_size // 2, "y": viewport_size // 2, "z": max_height // 2},
                 "default_rendered_shader": {
                     "type": "SimpleShader",
                     "background_color": {

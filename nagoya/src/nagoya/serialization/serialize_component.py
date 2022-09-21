@@ -11,6 +11,7 @@ from nagoya.component import (
 
 from .serialize_primitive import serialize_vector3
 from .serialize_shader import serialize_shader
+from .serialize_sprite import serialize_sprite
 
 
 def serialize_component(component: Component) -> dict:
@@ -40,6 +41,7 @@ class JSONExportComponentVisitor(ComponentVisitor):
         self.serialized_component = {
             "type": "RendererComponent",
             "shader": serialize_shader(element.shader),
+            "sprite": serialize_sprite(element.sprite),
             "priority": element.priority,
         }
 

@@ -11,6 +11,7 @@ from nagoya.object.game_object import GameObject
 from .load_primitive import load_vector3
 from .load_shader import load_shader
 from nagoya.component.custom_component import get_component
+from .load_sprite import load_sprite
 
 
 def load_component(game_object: GameObject, component: dict) -> Component:
@@ -42,7 +43,10 @@ def _load_keyboard_subject(game_object: GameObject, component: dict) -> Keyboard
 
 def _load_renderer_component(game_object: GameObject, component: dict) -> RendererComponent:
     return RendererComponent(
-        game_object=game_object, shader=load_shader(component["shader"]), priority=component["priority"]
+        game_object=game_object,
+        shader=load_shader(component["shader"]),
+        sprite=load_sprite(component["sprite"]),
+        priority=component["priority"]
     )
 
 

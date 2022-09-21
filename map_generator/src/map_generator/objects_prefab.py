@@ -25,6 +25,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                 background_colors=[(ColorA(0.5, 0.5, 0.5), 1)],
                 object_colors=[(ColorA(a=0), 1)],
                 object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "0_15"
+                },
             )
         case CellPrefab.DEEP_WATER_BLOCK:
             return Cell(
@@ -35,6 +41,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                 ],
                 object_colors=[(ColorA(a=0), 1)],
                 object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "2_8"
+                },
             )
         case CellPrefab.DEEP_WATER_ENTITY:
             return Cell(
@@ -49,6 +61,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                     ("🐙", 1),
                     ("🐬", 1),
                 ],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": ""
+                },
             )
         case CellPrefab.SHOAL_BLOCK:
             return Cell(
@@ -59,6 +77,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                 ],
                 object_colors=[(ColorA(a=0), 1)],
                 object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "2_7"
+                },
             )
         case CellPrefab.SHOAL_ENTITY:
             return Cell(
@@ -72,6 +96,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                     ("🐡", 1),
                     ("🐠", 1),
                 ],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": ""
+                },
             )
         case CellPrefab.BEACH_BLOCK:
             return Cell(
@@ -84,6 +114,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                 ],
                 object_colors=[(ColorA(a=0), 1)],
                 object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "0_7"
+                },
             )
         case CellPrefab.BEACH_ENTITY:
             return Cell(
@@ -96,6 +132,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                     ("🦎", 2),
                     ("🌴", 1),
                 ],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": ""
+                },
             )
         case CellPrefab.GRASS_MEADOW_BLOCK:
             return Cell(
@@ -108,6 +150,24 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                 ],
                 object_colors=[(ColorA(a=0), 1)],
                 object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "0_2"
+                },
+            )
+        case CellPrefab.GRASS_DERTY_BLOCK:
+            return Cell(
+                background_colors=[(ColorA(r=127 / 255, g=255 / 255, b=0 / 255), 1)],
+                object_colors=[(ColorA(a=0), 1)],
+                object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "0_1"
+                },
             )
         case CellPrefab.GRASS_MEADOW_ENTITY:
             return Cell(
@@ -120,6 +180,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                     ("🪱", 2),
                     ("🐛", 2),
                 ],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": ""
+                },
             )
         case CellPrefab.FOREST_BLOCK:
             return Cell(
@@ -132,6 +198,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                 ],
                 object_colors=[(ColorA(a=0), 1)],
                 object_textures=[("", 1)],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": "0_10"
+                },
             )
         case CellPrefab.FOREST_ENTITY:
             return Cell(
@@ -151,6 +223,12 @@ def get_cell(cell_prefab: CellPrefab) -> Cell:
                     ("🌪", 1),
                     ("🌩", 1),
                 ],
+                sprite={
+                    "type": "SimpleSprite",
+                    "assets_folder": "MCBlocks",
+                    "assets_file": "ColorOutline.png",
+                    "assets_image": ""
+                },
             )
 
 

@@ -19,6 +19,7 @@ class Cell:
     object_textures: list[(str, int)] = field(default_factory=list)
     background_colors: list[(ColorA, int)] = field(default_factory=list)
     object_colors: list[(ColorA, int)] = field(default_factory=list)
+    sprite: dict[str:str] = field(default_factory=dict)
 
     def get_prepared_str(self, background_color_a: int = 1, object_color_a: int = 1) -> dict:
         background_color = generate_from_distribution(self.background_colors)
@@ -43,11 +44,11 @@ class Cell:
         }
 
 
-def cell_prepared_str(x: int, y: int, z: int, shader: dict, priority: int) -> dict:
+def cell_prepared_str(x: int, y: int, z: int, shader: dict, sprite: dict, priority: int) -> dict:
     return {
         "components": [
             {"type": "TransformComponent", "position": {"x": x, "y": y, "z": z}},
-            {"type": "RendererComponent", "shader": shader, "priority": priority},
+            {"type": "RendererComponent", "shader": shader, "sprite": sprite, "priority": priority},
         ]
     }
 
@@ -59,13 +60,13 @@ class BuilderAllTheZBlocks:
     last_block: Cell
 
     def get_z_blocks(self, x: int, y: int, z_start: int, given_height: int, priority: int = 10) -> list[dict]:
-        prepared_cells: list[dict] = [cell_prepared_str(x, y, z_start, self.first_block.get_prepared_str(), priority)]
+        prepared_cells: list[dict] = [cell_prepared_str(x, y, z_start, self.first_block.get_prepared_str(), self.first_block.sprite, priority)]
 
         if given_height - 1 >= z_start + 1:
             for height in range(z_start + 1, given_height):
-                prepared_cells.append(cell_prepared_str(x, y, height, self.main_block.get_prepared_str(), priority))
+                prepared_cells.append(cell_prepared_str(x, y, height, self.main_block.get_prepared_str(), self.main_block.sprite, priority))
 
         if given_height >= z_start + 1:
-            prepared_cells.append(cell_prepared_str(x, y, given_height, self.last_block.get_prepared_str(), priority))
+            prepared_cells.append(cell_prepared_str(x, y, given_height, self.last_block.get_prepared_str(), self.last_block.sprite, priority))
 
         return prepared_cells
